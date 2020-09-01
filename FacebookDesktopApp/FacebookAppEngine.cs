@@ -341,9 +341,10 @@ namespace FacebookDesktopApp
         private bool searchInFriendsFile(string i_FriendId)
         {
             bool doesExistInFile = false;
-            StreamReader newFileStream = new StreamReader(FriendsTextFile);
+            
             if (File.Exists(FriendsTextFile))
             {
+                StreamReader newFileStream = new StreamReader(FriendsTextFile);
                 try
                 {
                     string line;
