@@ -1,0 +1,12 @@
+C:\project\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FacebookDesktopApp.exe
+C:\project\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FacebookDesktopApp.pdb
+C:\project\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FbGraphApiWrapper.dll
+C:\project\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\Facebook.dll
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csprojAssemblyReference.cache
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.FacebookAppForm.resources
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.Properties.Resources.resources
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.GenerateResource.cache
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.CoreCompileInputs.cache
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.CopyComplete
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.exe
+C:\project\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.pdb

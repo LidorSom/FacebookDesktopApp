@@ -268,31 +268,23 @@ namespace FacebookDesktopApp
 
         private void fetchOldFriendsFromFile()
         {
-            StreamReader fileStream = new StreamReader(FriendsTextFile);
-            if (File.Exists(FriendsTextFile))
+            using (OldfriendStreamAdapter fileStream = new OldfriendStreamAdapter(FriendsTextFile))
             {
-                try
+                OldFriend oldFriend;
+                while ((oldFriend = fileStream.ReadOldFriend()) != null)
                 {
-                    string currentLine;
-
-                    while ((currentLine = fileStream.ReadLine()) != null)
+                    if (searchInFriendsListById(oldFriend.Id) == false)
                     {
-                        string[] arrayOfUserData = currentLine.Split(' ');
-
-                        if (searchInFriendsListById(arrayOfUserData[0]) == false)
-                        {
-                            string stringToAdd = string.Format("{0} {1}", arrayOfUserData[1], arrayOfUserData[2]);
-
-                            r_OldFriends.Add(new OldFriend(arrayOfUserData[0], stringToAdd, arrayOfUserData[3]));
-                        }
+                            r_OldFriends.Add(oldFriend);
                     }
                 }
-                finally
-                {
-                    fileStream.Close();
-                }
             }
+
         }
+        
+
+
+
 
         private bool searchInFriendsListById(string i_Id)
         {
@@ -331,7 +323,11 @@ namespace FacebookDesktopApp
 
             foreach (User friend in r_FriendsToUpdate)
             {
-                streamWriter.WriteLine(friend.Id, friend.Name, friend.PictureNormalURL);
+                streamWriter.WriteLine(string.Format("{0} {1} {2} {3}",
+                    friend.Id,
+                    friend.FirstName,
+                    friend.LastName,
+                    friend.PictureNormalURL));
             }
 
             streamWriter.Close();
