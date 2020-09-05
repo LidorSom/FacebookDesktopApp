@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FacebookDesktopApp
 {
-    enum eMenuChoice
+    public enum eMenuChoice
     {
         profile=1,
         friends=2,

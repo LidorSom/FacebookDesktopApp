@@ -33,7 +33,7 @@ namespace FacebookDesktopApp
 
     public delegate void UpdatePrivacyStatusDelegate(string i_TypeOfObject, string i_PrivacyLevel);
 
-    public class FacebookAppEngine
+    public class FacebookAppEngine : IFacebookEngine
     {
         private const string k_AppId = "701913560360175";
         private const byte k_CollectionLimit = 50;

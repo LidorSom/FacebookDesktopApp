@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="FacebookAppEngine.cs" />
+    <Compile Include="FacebookAppEngineProxy.cs" />
     <Compile Include="FacebookAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +69,7 @@
       <DependentUpon>FacebookAppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFactory.cs" />
+    <Compile Include="IFacebookEngine.cs" />
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendStreamAdapter.cs" />
     <Compile Include="Program.cs" />

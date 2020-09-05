@@ -11,7 +11,6 @@ namespace FacebookDesktopApp
 {
     public partial class AppMenuForm : Form
     {
-
         public AppMenuForm()
         {
             InitializeComponent();
@@ -21,5 +20,6 @@ namespace FacebookDesktopApp
         {
 
         }
+
     }
 }
