@@ -1,0 +1,17 @@
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FacebookDesktopApp.exe
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FacebookDesktopApp.pdb
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\bin\Debug\Facebook.dll
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csprojAssemblyReference.cache
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.AppMainForm.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.AppMenuForm.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.FacebookAppForm.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.Properties.Resources.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.GenerateResource.cache
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.CoreCompileInputs.cache
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.csproj.CopyComplete
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.exe
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.pdb
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.MyProfileForm.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.FriendsForm.resources
+C:\Users\nadav\Desktop\New folder (3)\FacebookDesktopApp\FacebookDesktopApp\obj\Debug\FacebookDesktopApp.PostsForm.resources

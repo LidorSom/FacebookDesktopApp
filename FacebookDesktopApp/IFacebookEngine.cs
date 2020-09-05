@@ -1,6 +1,6 @@
 ﻿namespace FacebookDesktopApp
 {
-    interface IFacebookEngine
+    public interface IFacebookEngine
     {
         void Login();
 

@@ -21,17 +21,20 @@ namespace FacebookDesktopApp
     {
 
 
-        public static Form GetForm(eMenuChoice i_MenuChoice)
+        public static Form GetForm(eMenuChoice i_MenuChoice, FacebookAppEngine i_AppEngine)
         {
             Form toReturnForm;
             switch (i_MenuChoice)
             {
-                //case eMenuChoice.profile:
-                //    toReturnForm = ;
-                //    break;
-                //case eMenuChoice.friends:
-                //    toReturnForm=;
-                //    break;
+
+
+                case eMenuChoice.profile:
+                    toReturnForm = new MyProfileForm(i_AppEngine) ;
+                    break;
+
+                case eMenuChoice.friends:
+                    toReturnForm = new FriendsForm(i_AppEngine);
+                    break;
                 //case eMenuChoice.photos:
                 //    toReturnForm=;
                 //    break;
@@ -41,9 +44,9 @@ namespace FacebookDesktopApp
                 //case eMenuChoice.checkIns:
                 //    toReturnForm=;
                 //    break;
-                //case eMenuChoice.posts:
-                //    toReturnForm=;
-                //    break;
+                case eMenuChoice.posts:
+                    toReturnForm = new PostsForm(i_AppEngine);
+                    break;
                 //case eMenuChoice.privacy:
                 //    toReturnForm=;
                 //    break;

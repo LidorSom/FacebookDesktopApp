@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.postButton = new System.Windows.Forms.Button();
+            this.friendsButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -48,27 +48,29 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "profile";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.myProfileButtonPressed);
             // 
-            // button2
+            // postButton
             // 
-            this.button2.AccessibleName = "postButton";
-            this.button2.Location = new System.Drawing.Point(32, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 33);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "posts";
-            this.button2.UseVisualStyleBackColor = true;
+            this.postButton.AccessibleName = "postButton";
+            this.postButton.Location = new System.Drawing.Point(32, 85);
+            this.postButton.Name = "postButton";
+            this.postButton.Size = new System.Drawing.Size(103, 33);
+            this.postButton.TabIndex = 1;
+            this.postButton.Text = "posts";
+            this.postButton.UseVisualStyleBackColor = true;
+            this.postButton.Click += new System.EventHandler(this.postButton_Click);
             // 
-            // button3
+            // friendsButton
             // 
-            this.button3.AccessibleName = "friendsButton";
-            this.button3.Location = new System.Drawing.Point(32, 46);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 33);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "friends";
-            this.button3.UseVisualStyleBackColor = true;
+            this.friendsButton.AccessibleName = "friendsButton";
+            this.friendsButton.Location = new System.Drawing.Point(32, 46);
+            this.friendsButton.Name = "friendsButton";
+            this.friendsButton.Size = new System.Drawing.Size(103, 33);
+            this.friendsButton.TabIndex = 2;
+            this.friendsButton.Text = "friends";
+            this.friendsButton.UseVisualStyleBackColor = true;
+            this.friendsButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -139,8 +141,8 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.friendsButton);
+            this.Controls.Add(this.postButton);
             this.Controls.Add(this.button1);
             this.Name = "AppMenuForm";
             this.Text = "AppMenuForm";
@@ -151,8 +153,8 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button postButton;
+        private System.Windows.Forms.Button friendsButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

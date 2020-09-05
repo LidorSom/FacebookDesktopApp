@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FacebookDesktopApp
 {
-    class FacebookAppEngineProxy : IFacebookEngine
+    public class FacebookAppEngineProxy : IFacebookEngine
     {
         private readonly FacebookAppEngine r_AppEngine;
 
@@ -25,7 +25,7 @@ namespace FacebookDesktopApp
         {
             try
             {
-                r_AppEngine.Connect();
+                r_AppEngine.Login();
             }
             catch
             {
