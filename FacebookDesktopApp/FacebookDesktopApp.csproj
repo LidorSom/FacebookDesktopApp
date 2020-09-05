@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppMainForm.Designer.cs">
+      <DependentUpon>AppMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppMenuForm.Designer.cs">
+      <DependentUpon>AppMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="FacebookAppEngine.cs" />
     <Compile Include="FacebookAppForm.cs">
@@ -55,10 +67,17 @@
     <Compile Include="FacebookAppForm.Designer.cs">
       <DependentUpon>FacebookAppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFactory.cs" />
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendStreamAdapter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AppMainForm.resx">
+      <DependentUpon>AppMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppMenuForm.resx">
+      <DependentUpon>AppMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacebookAppForm.resx">
       <DependentUpon>FacebookAppForm.cs</DependentUpon>
     </EmbeddedResource>
