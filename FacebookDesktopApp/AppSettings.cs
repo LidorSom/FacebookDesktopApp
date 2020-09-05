@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
 using System.Drawing;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
@@ -40,6 +41,8 @@ namespace FacebookDesktopApp
         public Point LastWindowLocation { get; set; }
 
         public string AccessToken { get; set; }
+
+        public User FacebookUser { get; set; }
 
         static ApplicationSettings()
         {
