@@ -35,7 +35,7 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateUserDetails(User i_User);
 
-    public class FacebookAppEngine : IFacebookEngine
+    public class FacebookAppEngine
     {
         private const string k_AppId = "701913560360175";
         private const byte k_CollectionLimit = 50;
@@ -48,6 +48,8 @@ namespace FacebookDesktopApp
         private User FacebookUser { get; set; }
 
         private string FriendsTextFile { get; set; }
+
+        public event Action LoggedOutSuccessfully;
 
         public event LoginErrorDelegate NoticingLoginError;
 
@@ -110,6 +112,12 @@ namespace FacebookDesktopApp
             {
                 NoticingLoginError(m_LoginResult.ErrorMessage);
             }
+        }
+
+        public void Logout()
+        {
+            FacebookService.Logout(LoggedOutSuccessfully);
+            AccessToken = null;
         }
 
         public void FetchUserDetails()
@@ -282,9 +290,6 @@ namespace FacebookDesktopApp
 
         }
         
-
-
-
 
         private bool searchInFriendsListById(string i_Id)
         {
