@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendStreamAdapter.cs" />
+    <Compile Include="OldFriendStreamWriterAdpter.cs" />
     <Compile Include="PostsForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -136,7 +136,7 @@ namespace FacebookDesktopApp
 
         public void FetchPosts()
         {
-            UpdatingPosts(FacebookUser.Posts);
+            UpdatingPosts?.Invoke(FacebookUser.Posts);
         }
 
         public void FetchPokes() // Fetching Pokes is deprecated in version 2.4
@@ -304,63 +304,38 @@ namespace FacebookDesktopApp
 
         public void FetchFriends()
         {
-            UpdatingFriendsList(FacebookUser.Friends);
+            UpdatingFriendsList?.Invoke(FacebookUser.Friends);
             foreach (User friend in FacebookUser.Friends)
             {
-
-                if (searchInFriendsFile(friend.Id) == false)
+                if (searchInFriendsFile(friend) == false)
                 {
                     r_FriendsToUpdate.Add(friend);
                 }
-
             }
+
+            updateFriendsFile();
+
         }
 
         private void updateFriendsFile()
         {
-            StreamWriter streamWriter = new StreamWriter(FriendsTextFile, true);
-
-            foreach (User friend in r_FriendsToUpdate)
+            using (OldFriendStreamWriterAdpter streamWriterAdpter = new OldFriendStreamWriterAdpter(FriendsTextFile))
             {
-                streamWriter.WriteLine(string.Format("{0} {1} {2} {3}",
-                    friend.Id,
-                    friend.FirstName,
-                    friend.LastName,
-                    friend.PictureNormalURL));
+                foreach (User friend in r_FriendsToUpdate)
+                {
+                    streamWriterAdpter.WriteFriend(friend);
+                }
             }
-
-            streamWriter.Close();
             r_FriendsToUpdate.Clear();
         }
 
-        private bool searchInFriendsFile(string i_FriendId)
+        private bool searchInFriendsFile(User i_FriendId)
         {
             bool doesExistInFile = false;
-            
-            if (File.Exists(FriendsTextFile))
+            using (OldfriendStreamAdapter streamReaderAdapter = new OldfriendStreamAdapter(FriendsTextFile))
             {
-                StreamReader newFileStream = new StreamReader(FriendsTextFile);
-                try
-                {
-                    string line;
-
-                    while ((line = newFileStream.ReadLine()) != null)
-                    {
-                        string[] arrayOfData = line.Split(' ');
-
-                        if (arrayOfData[0] == i_FriendId)
-                        {
-                            doesExistInFile = true;
-                            break;
-                        }
-                    }
-                }
-                finally
-                {
-                    newFileStream.Close();
-                }
+                doesExistInFile = streamReaderAdapter.serachFriend(i_FriendId);
             }
-
             return doesExistInFile;
         }
 
@@ -369,10 +344,10 @@ namespace FacebookDesktopApp
             FacebookUser.PostStatus(i_StringToPost);
         }
 
-        public FacebookObjectCollection<User> GetFriends()
-        {
-            return FacebookUser.Friends;
-        }
+        //public FacebookObjectCollection<User> GetFriends()
+        //{
+        //    return FacebookUser.Friends;
+        //}
     }
 
     //// List of permissions denied:
