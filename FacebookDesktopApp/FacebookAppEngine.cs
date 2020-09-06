@@ -9,13 +9,13 @@ namespace FacebookDesktopApp
 {
     public delegate void LoginErrorDelegate(string i_ErrorMessage);
 
-    public delegate void UpdatePostDelegate(Post i_Post);
+    public delegate void UpdatePostDelegate(FacebookObjectCollection<Post> i_Post);
 
     public delegate void UpdateProfilePictureDelegate(string i_ProfilePictureUrl);
 
     public delegate void UpdatePokeDelegate(Poke i_Poke);
 
-    public delegate void UpdateFriendsDelegate(User i_User);
+    public delegate void UpdateFriendsDelegate(FacebookObjectCollection<User> i_User);
 
     public delegate void UpdateGenderDelegate(User.eGender? i_Gender);
 
@@ -33,7 +33,9 @@ namespace FacebookDesktopApp
 
     public delegate void UpdatePrivacyStatusDelegate(string i_TypeOfObject, string i_PrivacyLevel);
 
-    public class FacebookAppEngine
+    public delegate void UpdateUserDetails(User i_User);
+
+    public class FacebookAppEngine : IFacebookEngine
     {
         private const string k_AppId = "701913560360175";
         private const byte k_CollectionLimit = 50;
@@ -49,6 +51,7 @@ namespace FacebookDesktopApp
 
         public event LoginErrorDelegate NoticingLoginError;
 
+        public event UpdateUserDetails updateUserDetails;
         public event UpdateProfilePictureDelegate UpdatingProfilePicture;
 
         public event UpdatePostDelegate UpdatingPosts;
@@ -109,6 +112,11 @@ namespace FacebookDesktopApp
             }
         }
 
+        public void FetchUserDetails()
+        {
+            updateUserDetails?.Invoke(FacebookUser);
+        }
+
         public void Connect()
         {
             m_LoginResult = FacebookService.Connect(AccessToken);
@@ -117,11 +125,6 @@ namespace FacebookDesktopApp
 
         public void InvokeLoginHandlers()
         {
-            UpdatingGender(FacebookUser.Gender);
-            UpdatingName(FacebookUser.Name);
-            UpdatingProfilePicture(FacebookUser.Pictures.PictureUrl);
-            UpdatingBirthday(FacebookUser.Birthday);
-
             FriendsTextFile = string.Format(
                 "{0}{1}{2}",
                 "FriendsHistory",
@@ -133,10 +136,7 @@ namespace FacebookDesktopApp
 
         public void FetchPosts()
         {
-            foreach (Post post in FacebookUser.Posts)
-            {
-                UpdatingPosts(post);
-            }
+            UpdatingPosts(FacebookUser.Posts);
         }
 
         public void FetchPokes() // Fetching Pokes is deprecated in version 2.4
@@ -249,7 +249,7 @@ namespace FacebookDesktopApp
             {
                 foreach (OldFriend oldFriend in r_OldFriends)
                 {
-                    UpdatingOldFriends(oldFriend);
+                    UpdatingOldFriends?.Invoke(oldFriend);
                 }
             }
             catch (NullReferenceException e)
@@ -262,7 +262,7 @@ namespace FacebookDesktopApp
         {
             foreach (Album album in FacebookUser.Albums)
             {
-                AddingAlbums(album);
+                AddingAlbums?.Invoke(album);
             }
         }
 
@@ -304,17 +304,16 @@ namespace FacebookDesktopApp
 
         public void FetchFriends()
         {
+            UpdatingFriendsList(FacebookUser.Friends);
             foreach (User friend in FacebookUser.Friends)
             {
-                UpdatingFriendsList(friend);
 
                 if (searchInFriendsFile(friend.Id) == false)
                 {
                     r_FriendsToUpdate.Add(friend);
                 }
-            }
 
-            updateFriendsFile();
+            }
         }
 
         private void updateFriendsFile()
@@ -368,6 +367,11 @@ namespace FacebookDesktopApp
         public void PublishPost(string i_StringToPost)
         {
             FacebookUser.PostStatus(i_StringToPost);
+        }
+
+        public FacebookObjectCollection<User> GetFriends()
+        {
+            return FacebookUser.Friends;
         }
     }
 

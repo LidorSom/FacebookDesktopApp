@@ -83,6 +83,7 @@
             this.likesDataListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.Pages.SuspendLayout();
             this.MainTabPage.SuspendLayout();
@@ -123,7 +124,6 @@
             this.profilePictureBox.TabIndex = 1;
             this.profilePictureBox.TabStop = false;
             this.profilePictureBox.Visible = false;
-           
             // 
             // Pages
             // 
@@ -145,6 +145,7 @@
             // 
             // MainTabPage
             // 
+            this.MainTabPage.Controls.Add(this.listBox1);
             this.MainTabPage.Controls.Add(this.Gender_Label);
             this.MainTabPage.Controls.Add(this.DateOfBirth_Label);
             this.MainTabPage.Controls.Add(this.AutoLogin);
@@ -617,7 +618,7 @@
             this.ReportLoad_Button.UseVisualStyleBackColor = true;
             this.ReportLoad_Button.Click += new System.EventHandler(this.ReportLoad_Button_Click);
             // 
-            // PrivacyListView
+            // privacyListView
             // 
             this.privacyListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column1,
@@ -688,7 +689,16 @@
             this.columnHeader2.Text = "amount of likes";
             this.columnHeader2.Width = 107;
             // 
-            // FacebookDesktopAppForm
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(11, 9);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.TabIndex = 13;
+            // 
+            // FacebookAppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -698,7 +708,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FacebookDesktopAppForm";
+            this.Name = "FacebookAppForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facebook Desktop App";
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
@@ -778,5 +788,6 @@
         private System.Windows.Forms.ListView likesDataListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

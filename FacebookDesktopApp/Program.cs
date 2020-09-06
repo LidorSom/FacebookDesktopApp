@@ -10,7 +10,7 @@ namespace FacebookDesktopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FacebookAppForm());
+            Application.Run(new AppMainForm());
         }
     }
 }

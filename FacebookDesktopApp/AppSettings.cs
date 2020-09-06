@@ -42,8 +42,6 @@ namespace FacebookDesktopApp
 
         public string AccessToken { get; set; }
 
-        public User FacebookUser { get; set; }
-
         static ApplicationSettings()
         {
             sr_FileName = Application.ExecutablePath + ".settings.xml";

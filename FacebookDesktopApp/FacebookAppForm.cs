@@ -21,9 +21,9 @@ namespace FacebookDesktopApp
             r_ApplicationSettings = ApplicationSettings.ApplicationSettingsInstance;
             r_AppEngine.NoticingLoginError += showErrorMessage;
             r_AppEngine.UpdatingProfilePicture += updatingProfilePicture;
-            r_AppEngine.UpdatingPosts += addToPosts;
+            //r_AppEngine.UpdatingPosts += addToPosts;
             r_AppEngine.UpdatingPokes += addToPokes;
-            r_AppEngine.UpdatingFriendsList += addToFriendsListBox;
+           // r_AppEngine.UpdatingFriendsList += addToFriendsListBox;
             r_AppEngine.UpdatingName += setName;
             r_AppEngine.UpdatingGender += setGender;
             r_AppEngine.UpdatingBirthday += setBirthDay;
