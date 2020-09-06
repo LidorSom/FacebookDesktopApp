@@ -136,7 +136,7 @@ namespace FacebookDesktopApp
 
         public void FetchPosts()
         {
-            UpdatingPosts(FacebookUser.Posts);
+            UpdatingPosts?.Invoke(FacebookUser.Posts);
         }
 
         public void FetchPokes() // Fetching Pokes is deprecated in version 2.4
@@ -304,15 +304,13 @@ namespace FacebookDesktopApp
 
         public void FetchFriends()
         {
-            UpdatingFriendsList(FacebookUser.Friends);
+            UpdatingFriendsList?.Invoke(FacebookUser.Friends);
             foreach (User friend in FacebookUser.Friends)
             {
-
                 if (searchInFriendsFile(friend.Id) == false)
                 {
                     r_FriendsToUpdate.Add(friend);
                 }
-
             }
         }
 
@@ -369,10 +367,10 @@ namespace FacebookDesktopApp
             FacebookUser.PostStatus(i_StringToPost);
         }
 
-        public FacebookObjectCollection<User> GetFriends()
-        {
-            return FacebookUser.Friends;
-        }
+        //public FacebookObjectCollection<User> GetFriends()
+        //{
+        //    return FacebookUser.Friends;
+        //}
     }
 
     //// List of permissions denied:

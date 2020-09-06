@@ -11,7 +11,7 @@ namespace FacebookDesktopApp
     {
         private readonly string r_FileTextPath = null;
         private readonly StreamReader r_streamReader = null;
-
+        
         public OldfriendStreamAdapter(string i_FileTextPath)
         {
             r_FileTextPath = i_FileTextPath;
