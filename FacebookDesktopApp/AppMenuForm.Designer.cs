@@ -32,7 +32,7 @@
             this.postButton = new System.Windows.Forms.Button();
             this.friendsButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.photosButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -82,14 +82,15 @@
             this.button4.Text = "pokes";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // photosButton
             // 
-            this.button5.Location = new System.Drawing.Point(32, 202);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 33);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "photos";
-            this.button5.UseVisualStyleBackColor = true;
+            this.photosButton.Location = new System.Drawing.Point(32, 202);
+            this.photosButton.Name = "photosButton";
+            this.photosButton.Size = new System.Drawing.Size(103, 33);
+            this.photosButton.TabIndex = 4;
+            this.photosButton.Text = "Photos";
+            this.photosButton.UseVisualStyleBackColor = true;
+            this.photosButton.Click += new System.EventHandler(this.photosButton_Click);
             // 
             // button6
             // 
@@ -139,7 +140,7 @@
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.photosButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.friendsButton);
             this.Controls.Add(this.postButton);
@@ -156,7 +157,7 @@
         private System.Windows.Forms.Button postButton;
         private System.Windows.Forms.Button friendsButton;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button photosButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
