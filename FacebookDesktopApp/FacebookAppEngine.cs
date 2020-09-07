@@ -31,7 +31,8 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
 
-    public delegate void UpdatePrivacyStatusDelegate(string i_TypeOfObject, string i_PrivacyLevel);
+    //  public delegate void UpdatePrivacyStatusDelegate(string i_TypeOfObject, string i_PrivacyLevel);
+     public delegate void UpdatePrivacyStatusDelegate();
 
     public delegate void UpdateUserDetails(User i_User);
 
@@ -45,9 +46,17 @@ namespace FacebookDesktopApp
 
         public string AccessToken { get; set; }
 
+        public FacebookObjectCollection<Event> Events { get; private set; }
+        public FacebookObjectCollection<Group> Groups { get; private set; }
+        public FacebookObjectCollection<Album> Albums { get; private set; }
+
+
         private User FacebookUser { get; set; }
 
         private string FriendsTextFile { get; set; }
+
+
+        public event Action LoggedOutSuccessfully;
 
         public event LoginErrorDelegate NoticingLoginError;
 
@@ -112,15 +121,23 @@ namespace FacebookDesktopApp
             }
         }
 
+        public void Logout()
+        {
+            FacebookService.Logout(LoggedOutSuccessfully);
+            AccessToken = null;
+        }
+
         public void FetchUserDetails()
         {
             updateUserDetails?.Invoke(FacebookUser);
         }
 
-        public void Connect()
+        public void Connect() 
         {
             m_LoginResult = FacebookService.Connect(AccessToken);
             FacebookUser = m_LoginResult.LoggedInUser;
+           InvokeLoginHandlers(); // added in order to initial properties : groups,albums,events
+           
         }
 
         public void InvokeLoginHandlers()
@@ -132,6 +149,10 @@ namespace FacebookDesktopApp
                 ".txt");
 
             FacebookUser.Pictures.LoadPicturesAsync();
+
+            Events = FacebookUser.Events;
+            Groups = FacebookUser.Groups; // problem with OEception when autologged in
+            Albums = FacebookUser.Albums;
         }
 
         public void FetchPosts()
@@ -207,7 +228,7 @@ namespace FacebookDesktopApp
             }
         }
 
-        public void FetchPrivacyData()
+      /*  public void FetchPrivacyData()
         {
             int objectsCounter = 1;
 
@@ -217,12 +238,12 @@ namespace FacebookDesktopApp
                 objectsCounter++;
             }
 
-            /*  foreach (Group group in FacebookUser.Groups) // unaccessible
+              foreach (Group group in FacebookUser.Groups) // unaccessible
               {
                   UpdatePrivacyData(string.Format("Group N.{0}", objectsCounter), group.Privacy.ToString());
                   objectsCounter++;
               }
-          */
+        
 
             objectsCounter = 1;
 
@@ -232,7 +253,7 @@ namespace FacebookDesktopApp
                 objectsCounter++;
             }
         }
-
+*/
         public void FetchCheckIns()
         {
             AddingCheckIn?.Invoke(FacebookUser.Checkins);
@@ -258,6 +279,11 @@ namespace FacebookDesktopApp
         public void FetchPhotos()
         {
             AddingAlbums?.Invoke(FacebookUser.Albums);
+        }
+
+        public void FetchPrivacyData()
+        {
+            UpdatingPrivacyData?.Invoke();
         }
 
         private void fetchOldFriendsFromFile()

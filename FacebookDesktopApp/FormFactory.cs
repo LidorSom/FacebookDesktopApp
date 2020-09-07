@@ -20,14 +20,12 @@ namespace FacebookDesktopApp
     public class FormFactory
     {
 
-
         public static Form GetForm(eMenuChoice i_MenuChoice, FacebookAppEngine i_AppEngine)
         {
             Form toReturnForm;
+
             switch (i_MenuChoice)
             {
-
-
                 case eMenuChoice.profile:
                     toReturnForm = new MyProfileForm(i_AppEngine) ;
                     break;
@@ -47,9 +45,9 @@ namespace FacebookDesktopApp
                 case eMenuChoice.posts:
                     toReturnForm = new PostsForm(i_AppEngine);
                     break;
-                //case eMenuChoice.privacy:
-                //    toReturnForm=;
-                //    break;
+                case eMenuChoice.privacy:
+                    toReturnForm = new PrivacyForm(i_AppEngine);
+                    break;
                 //case eMenuChoice.likeCounter:
                 //    toReturnForm=;
                 //    break;

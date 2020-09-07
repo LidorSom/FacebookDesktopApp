@@ -29,7 +29,7 @@ namespace FacebookDesktopApp
             r_AppEngine.UpdatingBirthday += setBirthDay;
             r_AppEngine.UpdatingOldFriends += addOldFriends;
             //r_AppEngine.AddingCheckIn += addingCheckIn;
-            r_AppEngine.UpdatingPrivacyData += addToPrivacySettings;
+           // r_AppEngine.UpdatingPrivacyData += addToPrivacySettings;
            // r_AppEngine.AddingAlbums += addAlbums;
             r_AppEngine.UpdateLikesData += updateLikesData;
             InitializeComponent();
@@ -385,7 +385,7 @@ namespace FacebookDesktopApp
             try
             {
                 privacyListView.Items.Clear();
-                r_AppEngine.FetchPrivacyData();
+               // r_AppEngine.FetchPrivacyData();
             }
             catch (Exception exception)
             {

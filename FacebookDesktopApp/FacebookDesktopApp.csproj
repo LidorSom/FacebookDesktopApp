@@ -103,6 +103,12 @@
     <Compile Include="PostsForm.Designer.cs">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrivacyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrivacyForm.Designer.cs">
+      <DependentUpon>PrivacyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AppMainForm.resx">
@@ -129,6 +135,9 @@
     <EmbeddedResource Include="PostsForm.resx">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrivacyForm.resx">
+      <DependentUpon>PrivacyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -140,6 +149,8 @@
     </Compile>
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Album.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Checkin.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Event.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Group.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Photo.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Post.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.User.datasource" />
