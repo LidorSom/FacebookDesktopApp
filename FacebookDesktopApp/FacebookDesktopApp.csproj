@@ -82,6 +82,12 @@
     </Compile>
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendStreamAdapter.cs" />
+    <Compile Include="PhotosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotosForm.Designer.cs">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <EmbeddedResource Include="MyProfileForm.resx">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PhotosForm.resx">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PostsForm.resx">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +126,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Album.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Post.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.User.datasource" />
     <None Include="Properties\Settings.settings">

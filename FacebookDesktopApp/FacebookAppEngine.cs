@@ -268,10 +268,7 @@ namespace FacebookDesktopApp
 
         public void FetchPhotos()
         {
-            foreach (Album album in FacebookUser.Albums)
-            {
-                AddingAlbums?.Invoke(album);
-            }
+            AddingAlbums?.Invoke(FacebookUser.Albums[0]);
         }
 
         private void fetchOldFriendsFromFile()

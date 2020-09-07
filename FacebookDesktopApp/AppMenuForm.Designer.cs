@@ -42,9 +42,10 @@
             // button1
             // 
             this.button1.AccessibleName = "myProfileButton";
-            this.button1.Location = new System.Drawing.Point(32, 12);
+            this.button1.Location = new System.Drawing.Point(24, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 33);
+            this.button1.Size = new System.Drawing.Size(77, 27);
             this.button1.TabIndex = 0;
             this.button1.Text = "profile";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@
             // postButton
             // 
             this.postButton.AccessibleName = "postButton";
-            this.postButton.Location = new System.Drawing.Point(32, 85);
+            this.postButton.Location = new System.Drawing.Point(24, 69);
+            this.postButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.postButton.Name = "postButton";
-            this.postButton.Size = new System.Drawing.Size(103, 33);
+            this.postButton.Size = new System.Drawing.Size(77, 27);
             this.postButton.TabIndex = 1;
             this.postButton.Text = "posts";
             this.postButton.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // friendsButton
             // 
             this.friendsButton.AccessibleName = "friendsButton";
-            this.friendsButton.Location = new System.Drawing.Point(32, 46);
+            this.friendsButton.Location = new System.Drawing.Point(24, 37);
+            this.friendsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.friendsButton.Name = "friendsButton";
-            this.friendsButton.Size = new System.Drawing.Size(103, 33);
+            this.friendsButton.Size = new System.Drawing.Size(77, 27);
             this.friendsButton.TabIndex = 2;
             this.friendsButton.Text = "friends";
             this.friendsButton.UseVisualStyleBackColor = true;
@@ -75,27 +78,31 @@
             // button4
             // 
             this.button4.AccessibleName = "pokesButton";
-            this.button4.Location = new System.Drawing.Point(32, 124);
+            this.button4.Location = new System.Drawing.Point(24, 101);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 33);
+            this.button4.Size = new System.Drawing.Size(77, 27);
             this.button4.TabIndex = 3;
             this.button4.Text = "pokes";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(32, 202);
+            this.button5.Location = new System.Drawing.Point(24, 164);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 33);
+            this.button5.Size = new System.Drawing.Size(77, 27);
             this.button5.TabIndex = 4;
             this.button5.Text = "photos";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(32, 163);
+            this.button6.Location = new System.Drawing.Point(24, 132);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(103, 33);
+            this.button6.Size = new System.Drawing.Size(77, 27);
             this.button6.TabIndex = 5;
             this.button6.Text = "checkIns";
             this.button6.UseVisualStyleBackColor = true;
@@ -103,9 +110,10 @@
             // button7
             // 
             this.button7.AccessibleName = "privacyButton";
-            this.button7.Location = new System.Drawing.Point(32, 241);
+            this.button7.Location = new System.Drawing.Point(24, 196);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(103, 33);
+            this.button7.Size = new System.Drawing.Size(77, 27);
             this.button7.TabIndex = 6;
             this.button7.Text = "Privacy";
             this.button7.UseVisualStyleBackColor = true;
@@ -113,9 +121,10 @@
             // button8
             // 
             this.button8.AccessibleName = "likesCounterButton";
-            this.button8.Location = new System.Drawing.Point(32, 280);
+            this.button8.Location = new System.Drawing.Point(24, 228);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(103, 33);
+            this.button8.Size = new System.Drawing.Size(77, 27);
             this.button8.TabIndex = 7;
             this.button8.Text = "Likes Counter";
             this.button8.UseVisualStyleBackColor = true;
@@ -123,18 +132,19 @@
             // button9
             // 
             this.button9.AccessibleName = "Logout";
-            this.button9.Location = new System.Drawing.Point(32, 319);
+            this.button9.Location = new System.Drawing.Point(24, 259);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(103, 36);
+            this.button9.Size = new System.Drawing.Size(77, 29);
             this.button9.TabIndex = 8;
             this.button9.Text = "Logout";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // AppMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -144,6 +154,7 @@
             this.Controls.Add(this.friendsButton);
             this.Controls.Add(this.postButton);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AppMenuForm";
             this.Text = "AppMenuForm";
             this.ResumeLayout(false);
