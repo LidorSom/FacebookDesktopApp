@@ -34,10 +34,5 @@ namespace FacebookDesktopApp
             activateForm(eMenuChoice.posts);
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form toDisplayForm = FormFactory.GetForm(eMenuChoice.photos, AppEngine);
-            toDisplayForm.ShowDialog();
-        }
     }
 }

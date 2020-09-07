@@ -82,12 +82,6 @@
     </Compile>
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendStreamAdapter.cs" />
-    <Compile Include="PhotosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PhotosForm.Designer.cs">
-      <DependentUpon>PhotosForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PostsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyProfileForm.resx">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PhotosForm.resx">
-      <DependentUpon>PhotosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostsForm.resx">
       <DependentUpon>PostsForm.cs</DependentUpon>
