@@ -13,6 +13,7 @@ namespace FacebookDesktopApp
     {
         public FacebookAppEngine AppEngine { get; set; }
         private eMenuChoice MenuChoice { get; set; }
+
         public AppMenuForm()
         {
             InitializeComponent();
@@ -48,6 +49,11 @@ namespace FacebookDesktopApp
         private void button6_Click(object sender, EventArgs e)
         {
             activateForm(eMenuChoice.checkIns);
+        }
+
+        private void PrivacyReportButton_Click(object sender, EventArgs e)
+        {
+            activateForm(eMenuChoice.privacy);
         }
     }
 }
