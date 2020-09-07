@@ -25,7 +25,7 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateOldFriendsDelegate(OldFriend i_OldFriend);
 
-    public delegate void AddCheckInDelegate(Checkin i_CheckIn);
+    public delegate void AddCheckInDelegate(FacebookObjectCollection<Checkin> i_CheckIns);
 
     public delegate void AddAlbumsDelegate(FacebookObjectCollection<Album> i_Albums);
 
@@ -235,10 +235,7 @@ namespace FacebookDesktopApp
 
         public void FetchCheckIns()
         {
-            foreach (Checkin checkIn in FacebookUser.Checkins)
-            {
-                AddingCheckIn(checkIn);
-            }
+            AddingCheckIn?.Invoke(FacebookUser.Checkins);
         }
 
         public void FetchOldFriends()
