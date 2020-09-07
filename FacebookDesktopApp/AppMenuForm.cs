@@ -44,5 +44,10 @@ namespace FacebookDesktopApp
         {
             activateForm(eMenuChoice.photos);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            activateForm(eMenuChoice.checkIns);
+        }
     }
 }

@@ -41,9 +41,9 @@ namespace FacebookDesktopApp
                 //case eMenuChoice.pokes:
                 //    toReturnForm=;
                 //    break;
-                //case eMenuChoice.checkIns:
-                //    toReturnForm=;
-                //    break;
+                case eMenuChoice.checkIns:
+                    toReturnForm= new CheckInForm(i_AppEngine);
+                    break;
                 case eMenuChoice.posts:
                     toReturnForm = new PostsForm(i_AppEngine);
                     break;

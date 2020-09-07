@@ -28,7 +28,7 @@ namespace FacebookDesktopApp
             r_AppEngine.UpdatingGender += setGender;
             r_AppEngine.UpdatingBirthday += setBirthDay;
             r_AppEngine.UpdatingOldFriends += addOldFriends;
-            r_AppEngine.AddingCheckIn += addingCheckIn;
+            //r_AppEngine.AddingCheckIn += addingCheckIn;
             r_AppEngine.UpdatingPrivacyData += addToPrivacySettings;
            // r_AppEngine.AddingAlbums += addAlbums;
             r_AppEngine.UpdateLikesData += updateLikesData;
