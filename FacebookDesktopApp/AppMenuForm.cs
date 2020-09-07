@@ -39,5 +39,10 @@ namespace FacebookDesktopApp
         {
             activateForm(eMenuChoice.posts);
         }
+
+        private void photosButton_Click(object sender, EventArgs e)
+        {
+            activateForm(eMenuChoice.photos);
+        }
     }
 }

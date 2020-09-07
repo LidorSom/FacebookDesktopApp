@@ -35,9 +35,9 @@ namespace FacebookDesktopApp
                 case eMenuChoice.friends:
                     toReturnForm = new FriendsForm(i_AppEngine);
                     break;
-                //case eMenuChoice.photos:
-                //    toReturnForm=;
-                //    break;
+                case eMenuChoice.photos:
+                    toReturnForm= new PhotosForm(i_AppEngine);
+                    break;
                 //case eMenuChoice.pokes:
                 //    toReturnForm=;
                 //    break;

@@ -27,7 +27,7 @@ namespace FacebookDesktopApp
 
     public delegate void AddCheckInDelegate(Checkin i_CheckIn);
 
-    public delegate void AddAlbumsDelegate(Album i_Album);
+    public delegate void AddAlbumsDelegate(FacebookObjectCollection<Album> i_Albums);
 
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
 
@@ -260,10 +260,7 @@ namespace FacebookDesktopApp
 
         public void FetchPhotos()
         {
-            foreach (Album album in FacebookUser.Albums)
-            {
-                AddingAlbums?.Invoke(album);
-            }
+            AddingAlbums?.Invoke(FacebookUser.Albums);
         }
 
         private void fetchOldFriendsFromFile()
