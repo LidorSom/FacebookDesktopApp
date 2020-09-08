@@ -31,8 +31,7 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
 
-    //  public delegate void UpdatePrivacyStatusDelegate(string i_TypeOfObject, string i_PrivacyLevel);
-     public delegate void UpdatePrivacyStatusDelegate();
+    public delegate void UpdatePrivacyStatusDelegate();
 
     public delegate void UpdateUserDetails(User i_User);
 
@@ -132,12 +131,11 @@ namespace FacebookDesktopApp
             updateUserDetails?.Invoke(FacebookUser);
         }
 
-        public void Connect() 
+        public void Connect()
         {
             m_LoginResult = FacebookService.Connect(AccessToken);
             FacebookUser = m_LoginResult.LoggedInUser;
-           InvokeLoginHandlers(); // added in order to initial properties : groups,albums,events
-           
+            InvokeLoginHandlers();
         }
 
         public void InvokeLoginHandlers()
@@ -151,7 +149,7 @@ namespace FacebookDesktopApp
             FacebookUser.Pictures.LoadPicturesAsync();
 
             Events = FacebookUser.Events;
-            Groups = FacebookUser.Groups; // problem with OEception when autologged in
+          //  Groups = FacebookUser.Groups; // problem with OEception when autologged in
             Albums = FacebookUser.Albums;
         }
 
