@@ -151,7 +151,7 @@ namespace FacebookDesktopApp
             FacebookUser.Pictures.LoadPicturesAsync();
 
             Events = FacebookUser.Events;
-            Groups = FacebookUser.Groups; // problem with OEception when autologged in
+          //  Groups = FacebookUser.Groups; // problem with OEception when autologged in
             Albums = FacebookUser.Albums;
         }
 
