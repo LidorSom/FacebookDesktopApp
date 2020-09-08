@@ -90,7 +90,9 @@ namespace FacebookDesktopApp
             updateFormButtonsWithLogin();
 
             AppMenuForm menuForm = new AppMenuForm() { AppEngine = r_AppEngine };
+            this.Visible = false;
             menuForm.ShowDialog();
+            this.Visible = true;
         }
 
         private void updateFormButtonsWithLogin()
