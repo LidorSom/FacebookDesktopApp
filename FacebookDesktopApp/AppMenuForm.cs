@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookDesktopApp
@@ -22,7 +21,8 @@ namespace FacebookDesktopApp
 
         private void myProfileButtonPressed(object sender, EventArgs e)
         {
-            activateForm(eMenuChoice.profile);
+            Form toDisplayForm = FormFactory.GetForm(eMenuChoice.profile, AppEngine);
+            toDisplayForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -33,8 +33,7 @@ namespace FacebookDesktopApp
         private void activateForm(eMenuChoice i_MenuChoice)
         {
             Form toDisplayForm = FormFactory.GetForm(i_MenuChoice, AppEngine);
-            Thread thread = new Thread(() => toDisplayForm.ShowDialog());
-            thread.Start();
+            toDisplayForm.ShowDialog();
         }
 
         private void postButton_Click(object sender, EventArgs e)
