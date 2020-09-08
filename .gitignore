@@ -1,3 +1,6 @@
 /bin
 /obj
 /Properties
+/.vs
+/FacebookDesktopApp/obj
+/FacebookDesktopApp/bin
