@@ -38,7 +38,6 @@ namespace FacebookDesktopApp
             r_AppEngine.Login();
 
             showMenuFormAndUpdateMainForm();
-
         }
 
         protected override void OnShown(EventArgs e)

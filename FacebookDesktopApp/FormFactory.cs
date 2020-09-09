@@ -8,15 +8,17 @@ namespace FacebookDesktopApp
 {
     public enum eMenuChoice
     {
-        profile=1,
-        friends=2,
-        posts=3,
-        pokes=4,
-        checkIns=5,
-        photos=6,
-        privacy=7,
-        likeCounter=8
+        profile = 1,
+        friends = 2,
+        oldFriends = 3,
+        posts = 4,
+        pokes = 5,
+        checkIns = 6,
+        photos = 7,
+        privacy = 8,
+        likeCounter = 9
     }
+
     public class FormFactory
     {
 
@@ -35,6 +37,9 @@ namespace FacebookDesktopApp
                     break;
                 case eMenuChoice.photos:
                     toReturnForm= new PhotosForm(i_AppEngine);
+                    break;
+                case eMenuChoice.oldFriends:
+                    toReturnForm=new OldFriendsForm(i_AppEngine);
                     break;
                 //case eMenuChoice.pokes:
                 //    toReturnForm=;
