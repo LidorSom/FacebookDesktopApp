@@ -35,7 +35,7 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateUserDetails(User i_User);
 
-    public class FacebookAppEngine : IFacebookEngine
+    public class FacebookAppEngine
     {
         private const string k_AppId = "701913560360175";
         private const byte k_CollectionLimit = 50;
@@ -49,17 +49,16 @@ namespace FacebookDesktopApp
         public FacebookObjectCollection<Group> Groups { get; private set; }
         public FacebookObjectCollection<Album> Albums { get; private set; }
 
-
         private User FacebookUser { get; set; }
 
         private string FriendsTextFile { get; set; }
-
 
         public event Action LoggedOutSuccessfully;
 
         public event LoginErrorDelegate NoticingLoginError;
 
         public event UpdateUserDetails updateUserDetails;
+
         public event UpdateProfilePictureDelegate UpdatingProfilePicture;
 
         public event UpdatePostDelegate UpdatingPosts;
@@ -149,7 +148,6 @@ namespace FacebookDesktopApp
             FacebookUser.Pictures.LoadPicturesAsync();
 
             Events = FacebookUser.Events;
-          //  Groups = FacebookUser.Groups; // problem with OEception when autologged in
             Albums = FacebookUser.Albums;
         }
 
@@ -226,32 +224,6 @@ namespace FacebookDesktopApp
             }
         }
 
-      /*  public void FetchPrivacyData()
-        {
-            int objectsCounter = 1;
-
-            foreach (Album album in FacebookUser.Albums)
-            {
-                UpdatingPrivacyData(string.Format("Album N.{0}", objectsCounter), album.PrivcaySettings);
-                objectsCounter++;
-            }
-
-              foreach (Group group in FacebookUser.Groups) // unaccessible
-              {
-                  UpdatePrivacyData(string.Format("Group N.{0}", objectsCounter), group.Privacy.ToString());
-                  objectsCounter++;
-              }
-        
-
-            objectsCounter = 1;
-
-            foreach (Event declinedEvent in FacebookUser.Events)
-            {
-                UpdatingPrivacyData(string.Format("Event N.{0}", objectsCounter), declinedEvent.Privacy.ToString());
-                objectsCounter++;
-            }
-        }
-*/
         public void FetchCheckIns()
         {
             AddingCheckIn?.Invoke(FacebookUser.Checkins);
@@ -261,6 +233,7 @@ namespace FacebookDesktopApp
         {
             updateFriendsFile();
             fetchOldFriendsFromFile();
+
             try
             {
                 foreach (OldFriend oldFriend in r_OldFriends)
@@ -286,9 +259,10 @@ namespace FacebookDesktopApp
 
         private void fetchOldFriendsFromFile()
         {
-            using (OldfriendStreamAdapter fileStream = new OldfriendStreamAdapter(FriendsTextFile))
+            using (OldFriendStreamAdapter fileStream = new OldFriendStreamAdapter(FriendsTextFile))
             {
                 OldFriend oldFriend;
+
                 while ((oldFriend = fileStream.ReadOldFriend()) != null)
                 {
                     if (searchInFriendsListById(oldFriend.Id) == false)
@@ -297,12 +271,7 @@ namespace FacebookDesktopApp
                     }
                 }
             }
-
         }
-        
-
-
-
 
         private bool searchInFriendsListById(string i_Id)
         {
@@ -332,16 +301,15 @@ namespace FacebookDesktopApp
             }
 
             updateFriendsFile();
-
         }
 
         private void updateFriendsFile()
         {
-            using (OldFriendStreamWriterAdpter streamWriterAdpter = new OldFriendStreamWriterAdpter(FriendsTextFile))
+            using (OldFriendStreamWriterAdapter streamWriterAdapter = new OldFriendStreamWriterAdapter(FriendsTextFile))
             {
                 foreach (User friend in r_FriendsToUpdate)
                 {
-                    streamWriterAdpter.WriteFriend(friend);
+                    streamWriterAdapter.WriteFriend(friend);
                 }
             }
             r_FriendsToUpdate.Clear();
@@ -350,10 +318,12 @@ namespace FacebookDesktopApp
         private bool searchInFriendsFile(User i_FriendId)
         {
             bool doesExistInFile = false;
-            using (OldfriendStreamAdapter streamReaderAdapter = new OldfriendStreamAdapter(FriendsTextFile))
+
+            using (OldFriendStreamAdapter streamReaderAdapter = new OldFriendStreamAdapter(FriendsTextFile))
             {
-                doesExistInFile = streamReaderAdapter.serachFriend(i_FriendId);
+                doesExistInFile = streamReaderAdapter.searchFriend(i_FriendId);
             }
+
             return doesExistInFile;
         }
 

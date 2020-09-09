@@ -67,7 +67,6 @@
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FacebookAppEngine.cs" />
-    <Compile Include="FacebookAppEngineProxy.cs" />
     <Compile Include="FacebookAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,7 +80,6 @@
     <Compile Include="FriendsForm.Designer.cs">
       <DependentUpon>FriendsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IFacebookEngine.cs" />
     <Compile Include="MyProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +87,14 @@
       <DependentUpon>MyProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OldFriend.cs" />
+    <Compile Include="OldFriendsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldFriendsForm.Designer.cs">
+      <DependentUpon>OldFriendsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OldFriendStreamAdapter.cs" />
-    <Compile Include="OldFriendStreamWriterAdpter.cs" />
+    <Compile Include="OldFriendStreamWriterAdapter.cs" />
     <Compile Include="PhotosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyProfileForm.resx">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldFriendsForm.resx">
+      <DependentUpon>OldFriendsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhotosForm.resx">
       <DependentUpon>PhotosForm.cs</DependentUpon>

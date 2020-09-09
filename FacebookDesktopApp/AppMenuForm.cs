@@ -25,7 +25,7 @@ namespace FacebookDesktopApp
             activateForm(eMenuChoice.profile);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void friendsButton_Click(object sender, EventArgs e)
         {
             activateForm(eMenuChoice.friends);
         }
@@ -47,7 +47,7 @@ namespace FacebookDesktopApp
             activateForm(eMenuChoice.photos);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void checkInButton_Click(object sender, EventArgs e)
         {
             activateForm(eMenuChoice.checkIns);
         }
@@ -55,6 +55,11 @@ namespace FacebookDesktopApp
         private void PrivacyReportButton_Click(object sender, EventArgs e)
         {
             activateForm(eMenuChoice.privacy);
+        }
+
+        private void OldFriendsButton_Click(object sender, EventArgs e)
+        {
+            activateForm(eMenuChoice.oldFriends);
         }
     }
 }

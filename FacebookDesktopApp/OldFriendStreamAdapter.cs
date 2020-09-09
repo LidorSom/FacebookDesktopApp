@@ -8,13 +8,13 @@ using FacebookWrapper.ObjectModel;
 namespace FacebookDesktopApp
 {
 
-    public class OldfriendStreamAdapter : IDisposable
+    public class OldFriendStreamAdapter : IDisposable
     {
         private readonly string r_FileTextPath = null;
         private readonly StreamReader r_streamReader = null;
         
         
-        public OldfriendStreamAdapter(string i_FileTextPath)
+        public OldFriendStreamAdapter(string i_FileTextPath)
         {
             r_FileTextPath = i_FileTextPath;
             if (File.Exists(r_FileTextPath))
@@ -24,13 +24,10 @@ namespace FacebookDesktopApp
 
         }
 
-        
-
-
         public OldFriend ReadOldFriend()
         {
-
             OldFriend toReturnOlfFriend = null;
+
             if (File.Exists(r_FileTextPath))
             {
                 try
@@ -57,7 +54,7 @@ namespace FacebookDesktopApp
             return toReturnOlfFriend;
         }
 
-        public bool serachFriend(User i_User)
+        public bool searchFriend(User i_User)
         {
             bool doesExistInFile = false;
 
@@ -88,10 +85,6 @@ namespace FacebookDesktopApp
 
             return doesExistInFile;
         }
-
-
-
-
 
         public void Dispose()
         {

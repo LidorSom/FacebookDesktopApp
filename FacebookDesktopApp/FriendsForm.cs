@@ -13,22 +13,21 @@ namespace FacebookDesktopApp
 {
     public partial class FriendsForm : Form
     {
-        private FacebookAppEngine AppEngine;
+        private readonly FacebookAppEngine r_AppEngine;
         public FriendsForm(FacebookAppEngine i_AppEngine)
         {
-            AppEngine = i_AppEngine;
-            AppEngine.UpdatingFriendsList += updateFriendsList;
+            r_AppEngine = i_AppEngine;
+            r_AppEngine.UpdatingFriendsList += updateFriendsList;
             InitializeComponent();
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            Thread thread =  new Thread(new ThreadStart(()=> AppEngine.FetchFriends()));
+            Thread thread =  new Thread(new ThreadStart(()=> r_AppEngine.FetchFriends()));
             thread.Start();
         }
 
-        
 
         private void updateFriendsList(FacebookObjectCollection<User> i_User)
         {
