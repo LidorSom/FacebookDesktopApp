@@ -80,6 +80,12 @@
     <Compile Include="FriendsForm.Designer.cs">
       <DependentUpon>FriendsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LikesCounterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LikesCounterForm.Designer.cs">
+      <DependentUpon>LikesCounterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FriendsForm.resx">
       <DependentUpon>FriendsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikesCounterForm.resx">
+      <DependentUpon>LikesCounterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyProfileForm.resx">
       <DependentUpon>MyProfileForm.cs</DependentUpon>

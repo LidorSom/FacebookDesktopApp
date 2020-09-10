@@ -12,11 +12,10 @@ namespace FacebookDesktopApp
         friends = 2,
         oldFriends = 3,
         posts = 4,
-        pokes = 5,
+        likeCounter = 5,
         checkIns = 6,
         photos = 7,
         privacy = 8,
-        likeCounter = 9
     }
 
     public class FormFactory
@@ -41,9 +40,9 @@ namespace FacebookDesktopApp
                 case eMenuChoice.oldFriends:
                     toReturnForm=new OldFriendsForm(i_AppEngine);
                     break;
-                //case eMenuChoice.pokes:
-                //    toReturnForm=;
-                //    break;
+                case eMenuChoice.likeCounter:
+                    toReturnForm = new LikesCounterForm(i_AppEngine);
+                    break;
                 case eMenuChoice.checkIns:
                     toReturnForm= new CheckInForm(i_AppEngine);
                     break;
@@ -53,9 +52,6 @@ namespace FacebookDesktopApp
                 case eMenuChoice.privacy:
                     toReturnForm = new PrivacyForm(i_AppEngine);
                     break;
-                //case eMenuChoice.likeCounter:
-                //    toReturnForm=;
-                //    break;
 
                 default:
                     throw new ArgumentException("not a valid choice");

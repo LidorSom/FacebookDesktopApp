@@ -31,7 +31,6 @@
             this.MyProfileButton = new System.Windows.Forms.Button();
             this.postButton = new System.Windows.Forms.Button();
             this.friendsButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.photosButton = new System.Windows.Forms.Button();
             this.CheckInsButton = new System.Windows.Forms.Button();
             this.PrivacyReportButton = new System.Windows.Forms.Button();
@@ -57,7 +56,7 @@
             this.postButton.Location = new System.Drawing.Point(224, 105);
             this.postButton.Margin = new System.Windows.Forms.Padding(2);
             this.postButton.Name = "postButton";
-            this.postButton.Size = new System.Drawing.Size(89, 27);
+            this.postButton.Size = new System.Drawing.Size(89, 28);
             this.postButton.TabIndex = 1;
             this.postButton.Text = "Posts";
             this.postButton.UseVisualStyleBackColor = true;
@@ -75,20 +74,9 @@
             this.friendsButton.UseVisualStyleBackColor = true;
             this.friendsButton.Click += new System.EventHandler(this.friendsButton_Click);
             // 
-            // button4
-            // 
-            this.button4.AccessibleName = "pokesButton";
-            this.button4.Location = new System.Drawing.Point(224, 136);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 27);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Pokes";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // photosButton
             // 
-            this.photosButton.Location = new System.Drawing.Point(224, 167);
+            this.photosButton.Location = new System.Drawing.Point(224, 176);
             this.photosButton.Margin = new System.Windows.Forms.Padding(2);
             this.photosButton.Name = "photosButton";
             this.photosButton.Size = new System.Drawing.Size(89, 27);
@@ -99,7 +87,7 @@
             // 
             // CheckInsButton
             // 
-            this.CheckInsButton.Location = new System.Drawing.Point(224, 198);
+            this.CheckInsButton.Location = new System.Drawing.Point(224, 207);
             this.CheckInsButton.Margin = new System.Windows.Forms.Padding(2);
             this.CheckInsButton.Name = "CheckInsButton";
             this.CheckInsButton.Size = new System.Drawing.Size(89, 27);
@@ -111,7 +99,7 @@
             // PrivacyReportButton
             // 
             this.PrivacyReportButton.AccessibleName = "privacyButton";
-            this.PrivacyReportButton.Location = new System.Drawing.Point(224, 229);
+            this.PrivacyReportButton.Location = new System.Drawing.Point(224, 238);
             this.PrivacyReportButton.Margin = new System.Windows.Forms.Padding(2);
             this.PrivacyReportButton.Name = "PrivacyReportButton";
             this.PrivacyReportButton.Size = new System.Drawing.Size(89, 27);
@@ -123,13 +111,14 @@
             // LikesCounterButton
             // 
             this.LikesCounterButton.AccessibleName = "likesCounterButton";
-            this.LikesCounterButton.Location = new System.Drawing.Point(224, 260);
+            this.LikesCounterButton.Location = new System.Drawing.Point(224, 137);
             this.LikesCounterButton.Margin = new System.Windows.Forms.Padding(2);
             this.LikesCounterButton.Name = "LikesCounterButton";
-            this.LikesCounterButton.Size = new System.Drawing.Size(89, 27);
+            this.LikesCounterButton.Size = new System.Drawing.Size(89, 35);
             this.LikesCounterButton.TabIndex = 7;
             this.LikesCounterButton.Text = "Likes Counter";
             this.LikesCounterButton.UseVisualStyleBackColor = true;
+            this.LikesCounterButton.Click += new System.EventHandler(this.LikesCounterButton_Click);
             // 
             // OldFriendsButton
             // 
@@ -151,7 +140,6 @@
             this.Controls.Add(this.PrivacyReportButton);
             this.Controls.Add(this.CheckInsButton);
             this.Controls.Add(this.photosButton);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.friendsButton);
             this.Controls.Add(this.postButton);
             this.Controls.Add(this.MyProfileButton);
@@ -167,7 +155,6 @@
         private System.Windows.Forms.Button MyProfileButton;
         private System.Windows.Forms.Button postButton;
         private System.Windows.Forms.Button friendsButton;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button photosButton;
         private System.Windows.Forms.Button CheckInsButton;
         private System.Windows.Forms.Button PrivacyReportButton;
