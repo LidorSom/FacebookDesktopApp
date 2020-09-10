@@ -46,7 +46,9 @@ namespace FacebookDesktopApp
         public string AccessToken { get; set; }
 
         public FacebookObjectCollection<Event> Events { get; private set; }
+
         public FacebookObjectCollection<Group> Groups { get; private set; }
+
         public FacebookObjectCollection<Album> Albums { get; private set; }
 
         private User FacebookUser { get; set; }
@@ -166,7 +168,7 @@ namespace FacebookDesktopApp
 
         public void FetchLikesData()
         {
-            Dictionary<User, int> likesDictionary = new Dictionary<User, int>(FacebookUser.Friends.Count);
+           Dictionary<User,int> likesDictionary = new Dictionary<User, int>(FacebookUser.Friends.Count);
 
             foreach (User friend in FacebookUser.Friends)
             {
