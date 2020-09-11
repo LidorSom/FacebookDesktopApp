@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class CheckInForm : Form
     {
-        private FacebookAppEngine facebookAppEngine;
-        public CheckInForm(FacebookAppEngine i_AppEngine)
+        private CheckInFacade facebookAppEngine = new CheckInFacade();
+        public CheckInForm()
         {
-            facebookAppEngine = i_AppEngine;
             facebookAppEngine.AddingCheckIn += updateCheckIns;
             InitializeComponent();
         }

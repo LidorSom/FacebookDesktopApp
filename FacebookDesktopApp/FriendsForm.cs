@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using  System.Threading;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class FriendsForm : Form
     {
-        private readonly FacebookAppEngine r_AppEngine;
-        public FriendsForm(FacebookAppEngine i_AppEngine)
+        private readonly FriendsFacade r_AppEngine = new FriendsFacade();
+        public FriendsForm()
         {
-            r_AppEngine = i_AppEngine;
+           
             r_AppEngine.UpdatingFriendsList += updateFriendsList;
             InitializeComponent();
         }

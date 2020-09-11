@@ -40,12 +40,14 @@
             this.LikesAmount});
             this.likesDataListView.GridLines = true;
             this.likesDataListView.HideSelection = false;
-            this.likesDataListView.Location = new System.Drawing.Point(80, 76);
+            this.likesDataListView.Location = new System.Drawing.Point(107, 94);
+            this.likesDataListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.likesDataListView.Name = "likesDataListView";
-            this.likesDataListView.Size = new System.Drawing.Size(195, 256);
+            this.likesDataListView.Size = new System.Drawing.Size(259, 314);
             this.likesDataListView.TabIndex = 0;
             this.likesDataListView.UseCompatibleStateImageBehavior = false;
             this.likesDataListView.View = System.Windows.Forms.View.Details;
+            this.likesDataListView.SelectedIndexChanged += new System.EventHandler(this.likesDataListView_SelectedIndexChanged);
             // 
             // UserName
             // 
@@ -60,10 +62,11 @@
             // 
             // LikesCounterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.likesDataListView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LikesCounterForm";
             this.Text = "LikesCounterForm";
             this.ResumeLayout(false);

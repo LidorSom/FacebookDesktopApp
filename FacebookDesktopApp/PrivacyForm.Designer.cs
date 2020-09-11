@@ -46,19 +46,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // albumBindingSource
-            // 
-            this.albumBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Album);
-            // 
             // AlbumsPrivacy_Label
             // 
             AlbumsPrivacy_Label.AutoSize = true;
-            AlbumsPrivacy_Label.Location = new System.Drawing.Point(68, 64);
+            AlbumsPrivacy_Label.Location = new System.Drawing.Point(91, 79);
+            AlbumsPrivacy_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             AlbumsPrivacy_Label.Name = "AlbumsPrivacy_Label";
-            AlbumsPrivacy_Label.Size = new System.Drawing.Size(82, 13);
+            AlbumsPrivacy_Label.Size = new System.Drawing.Size(108, 17);
             AlbumsPrivacy_Label.TabIndex = 1;
             AlbumsPrivacy_Label.Text = "Albums Privacy:";
             AlbumsPrivacy_Label.Click += new System.EventHandler(this.privcaySettingsLabel_Click);
+            // 
+            // EventsPrivacy_Label
+            // 
+            EventsPrivacy_Label.AutoSize = true;
+            EventsPrivacy_Label.Location = new System.Drawing.Point(687, 79);
+            EventsPrivacy_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            EventsPrivacy_Label.Name = "EventsPrivacy_Label";
+            EventsPrivacy_Label.Size = new System.Drawing.Size(105, 17);
+            EventsPrivacy_Label.TabIndex = 2;
+            EventsPrivacy_Label.Text = "Events Privacy:";
+            // 
+            // GroupPrivacy_Label
+            // 
+            GroupPrivacy_Label.AutoSize = true;
+            GroupPrivacy_Label.Location = new System.Drawing.Point(375, 79);
+            GroupPrivacy_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            GroupPrivacy_Label.Name = "GroupPrivacy_Label";
+            GroupPrivacy_Label.Size = new System.Drawing.Size(109, 17);
+            GroupPrivacy_Label.TabIndex = 4;
+            GroupPrivacy_Label.Text = "Groups Privacy:";
+            // 
+            // albumBindingSource
+            // 
+            this.albumBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Album);
             // 
             // privcaySettingsListBox
             // 
@@ -66,24 +87,18 @@
             this.privcaySettingsListBox.DataSource = this.albumBindingSource;
             this.privcaySettingsListBox.DisplayMember = "PrivcaySettings";
             this.privcaySettingsListBox.FormattingEnabled = true;
-            this.privcaySettingsListBox.Location = new System.Drawing.Point(71, 92);
+            this.privcaySettingsListBox.ItemHeight = 16;
+            this.privcaySettingsListBox.Location = new System.Drawing.Point(95, 113);
+            this.privcaySettingsListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.privcaySettingsListBox.Name = "privcaySettingsListBox";
             this.privcaySettingsListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.privcaySettingsListBox.Size = new System.Drawing.Size(120, 186);
+            this.privcaySettingsListBox.Size = new System.Drawing.Size(159, 228);
             this.privcaySettingsListBox.TabIndex = 2;
+            this.privcaySettingsListBox.SelectedIndexChanged += new System.EventHandler(this.privcaySettingsListBox_SelectedIndexChanged);
             // 
             // eventBindingSource
             // 
             this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
-            // 
-            // EventsPrivacy_Label
-            // 
-            EventsPrivacy_Label.AutoSize = true;
-            EventsPrivacy_Label.Location = new System.Drawing.Point(515, 64);
-            EventsPrivacy_Label.Name = "EventsPrivacy_Label";
-            EventsPrivacy_Label.Size = new System.Drawing.Size(81, 13);
-            EventsPrivacy_Label.TabIndex = 2;
-            EventsPrivacy_Label.Text = "Events Privacy:";
             // 
             // privacyListBox
             // 
@@ -91,24 +106,17 @@
             this.privacyListBox.DataSource = this.eventBindingSource;
             this.privacyListBox.DisplayMember = "Privacy";
             this.privacyListBox.FormattingEnabled = true;
-            this.privacyListBox.Location = new System.Drawing.Point(518, 92);
+            this.privacyListBox.ItemHeight = 16;
+            this.privacyListBox.Location = new System.Drawing.Point(691, 113);
+            this.privacyListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.privacyListBox.Name = "privacyListBox";
             this.privacyListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.privacyListBox.Size = new System.Drawing.Size(120, 186);
+            this.privacyListBox.Size = new System.Drawing.Size(159, 228);
             this.privacyListBox.TabIndex = 3;
             // 
             // groupBindingSource
             // 
             this.groupBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Group);
-            // 
-            // GroupPrivacy_Label
-            // 
-            GroupPrivacy_Label.AutoSize = true;
-            GroupPrivacy_Label.Location = new System.Drawing.Point(281, 64);
-            GroupPrivacy_Label.Name = "GroupPrivacy_Label";
-            GroupPrivacy_Label.Size = new System.Drawing.Size(82, 13);
-            GroupPrivacy_Label.TabIndex = 4;
-            GroupPrivacy_Label.Text = "Groups Privacy:";
             // 
             // privacyListBox1
             // 
@@ -116,23 +124,26 @@
             this.privacyListBox1.DataSource = this.groupBindingSource;
             this.privacyListBox1.DisplayMember = "Privacy";
             this.privacyListBox1.FormattingEnabled = true;
-            this.privacyListBox1.Location = new System.Drawing.Point(284, 92);
+            this.privacyListBox1.ItemHeight = 16;
+            this.privacyListBox1.Location = new System.Drawing.Point(379, 113);
+            this.privacyListBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.privacyListBox1.Name = "privacyListBox1";
             this.privacyListBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.privacyListBox1.Size = new System.Drawing.Size(120, 186);
+            this.privacyListBox1.Size = new System.Drawing.Size(159, 228);
             this.privacyListBox1.TabIndex = 5;
             // 
             // PrivacyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 507);
+            this.ClientSize = new System.Drawing.Size(1112, 624);
             this.Controls.Add(GroupPrivacy_Label);
             this.Controls.Add(this.privacyListBox1);
             this.Controls.Add(EventsPrivacy_Label);
             this.Controls.Add(this.privacyListBox);
             this.Controls.Add(AlbumsPrivacy_Label);
             this.Controls.Add(this.privcaySettingsListBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PrivacyForm";
             this.Text = "PrivacyReport";
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();

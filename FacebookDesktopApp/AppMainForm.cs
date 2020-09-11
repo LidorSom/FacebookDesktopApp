@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using FacebookDesktopAppFacades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,19 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace FacebookDesktopApp
 {
     public partial class AppMainForm : Form
     {
         private readonly ApplicationSettings r_ApplicationSettings;
-        private readonly FacebookAppEngine r_AppEngine;
+        private readonly AppMainFacade r_AppEngine = new AppMainFacade();
 
         public AppMainForm()
         {
             r_ApplicationSettings = ApplicationSettings.ApplicationSettingsInstance;
-            r_AppEngine = new FacebookAppEngine();
             r_AppEngine.LoggedOutSuccessfully += showSuccessLogoutMessage;
-
             InitializeComponent();
             loadApplicationSettings();
         }
@@ -87,8 +88,7 @@ namespace FacebookDesktopApp
         private void showMenuFormAndUpdateMainForm()
         {
             updateFormButtonsWithLogin();
-
-            AppMenuForm menuForm = new AppMenuForm() { AppEngine = r_AppEngine };
+            Form menuForm = FormFactory.GetForm(eMenuChoice.Menu);
             this.Visible = false;
             menuForm.ShowDialog();
             this.Visible = true;
@@ -130,6 +130,11 @@ namespace FacebookDesktopApp
             }
 
             updateFormButtonsWithLogout();
+        }
+
+        private void AppMainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

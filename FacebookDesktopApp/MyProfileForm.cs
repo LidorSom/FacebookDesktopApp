@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class MyProfileForm : Form
     {
-        public  FacebookAppEngine AppEngine { get; set; }
+        private  MyProfileFacade AppEngine  = new MyProfileFacade();
         
-        public MyProfileForm(FacebookAppEngine i_FacebookAppEngine)
+        public MyProfileForm()
         {
-            AppEngine = i_FacebookAppEngine;
+         
             AppEngine.updateUserDetails += updateBindingSource;
             InitializeComponent();
         }

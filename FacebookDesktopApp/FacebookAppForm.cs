@@ -27,11 +27,11 @@ namespace FacebookDesktopApp
             r_AppEngine.UpdatingName += setName;
             r_AppEngine.UpdatingGender += setGender;
             r_AppEngine.UpdatingBirthday += setBirthDay;
-            r_AppEngine.UpdatingOldFriends += addOldFriends;
+            //r_AppEngine.UpdatingOldFriends += addOldFriends;
             //r_AppEngine.AddingCheckIn += addingCheckIn;
            // r_AppEngine.UpdatingPrivacyData += addToPrivacySettings;
            // r_AppEngine.AddingAlbums += addAlbums;
-            r_AppEngine.UpdateLikesData += updateLikesData;
+       //     r_AppEngine.UpdateLikesData += updateLikesData;
             InitializeComponent();
             loadApplicationSettings();
         }
@@ -357,7 +357,7 @@ namespace FacebookDesktopApp
         {
             AlbumlistBox.Items.Clear();
             PicturelistBox.Items.Clear();
-            r_AppEngine.FetchPhotos();
+         //   r_AppEngine.FetchPhotos();
         }
 
         private void addingCheckIn(Checkin i_CheckIn)
@@ -377,7 +377,7 @@ namespace FacebookDesktopApp
         private void loadCheckInsButton_Click(object sender, EventArgs e)
         {
             checkinsListBox.Items.Clear();
-            r_AppEngine.FetchCheckIns();
+         //   r_AppEngine.FetchCheckIns();
         }
 
         private void ReportLoad_Button_Click(object sender, EventArgs e)
