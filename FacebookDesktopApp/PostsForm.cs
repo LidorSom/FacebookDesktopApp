@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 using  System.Threading;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class PostsForm : Form
     {
-        private FacebookAppEngine AppEngine;
+        private PostsFacade AppEngine = new PostsFacade();
 
-        public PostsForm(FacebookAppEngine i_AppEngine)
+        public PostsForm()
         {
-            AppEngine = i_AppEngine;
             AppEngine.UpdatingPosts += updatePostList;
             InitializeComponent();
         }

@@ -37,9 +37,10 @@
             // 
             this.AutoLogin.AccessibleName = "autoLoginCheckBox";
             this.AutoLogin.AutoSize = true;
-            this.AutoLogin.Location = new System.Drawing.Point(104, 166);
+            this.AutoLogin.Location = new System.Drawing.Point(139, 204);
+            this.AutoLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AutoLogin.Name = "AutoLogin";
-            this.AutoLogin.Size = new System.Drawing.Size(74, 17);
+            this.AutoLogin.Size = new System.Drawing.Size(94, 21);
             this.AutoLogin.TabIndex = 19;
             this.AutoLogin.Text = "AutoLogin";
             this.AutoLogin.UseVisualStyleBackColor = true;
@@ -48,10 +49,10 @@
             // 
             this.LoginButton.AccessibleName = "loginButton";
             this.LoginButton.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.LoginButton.Location = new System.Drawing.Point(218, 158);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Location = new System.Drawing.Point(291, 194);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(90, 29);
+            this.LoginButton.Size = new System.Drawing.Size(120, 36);
             this.LoginButton.TabIndex = 13;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@
             // 
             // LogoutButton
             // 
-            this.LogoutButton.Location = new System.Drawing.Point(144, 144);
+            this.LogoutButton.Location = new System.Drawing.Point(192, 177);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(90, 29);
+            this.LogoutButton.Size = new System.Drawing.Size(120, 36);
             this.LogoutButton.TabIndex = 20;
             this.LogoutButton.Text = "Logout";
             this.LogoutButton.UseVisualStyleBackColor = true;
@@ -70,15 +72,16 @@
             // 
             // AppMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 326);
+            this.ClientSize = new System.Drawing.Size(516, 401);
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.AutoLogin);
             this.Controls.Add(this.LoginButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AppMainForm";
             this.Text = "AppMainForm";
+            this.Load += new System.EventHandler(this.AppMainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

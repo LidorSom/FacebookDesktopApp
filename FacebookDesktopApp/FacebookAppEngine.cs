@@ -23,17 +23,15 @@ namespace FacebookDesktopApp
 
     public delegate void UpdateBirthdayDelegate(string i_BirthDay);
 
-    public delegate void UpdateOldFriendsDelegate(OldFriend i_OldFriend);
+    //public delegate void AddCheckInDelegate(FacebookObjectCollection<Checkin> i_CheckIns);
 
-    public delegate void AddCheckInDelegate(FacebookObjectCollection<Checkin> i_CheckIns);
-
-    public delegate void AddAlbumsDelegate(FacebookObjectCollection<Album> i_Albums);
+   // public delegate void AddAlbumsDelegate(FacebookObjectCollection<Album> i_Albums);
 
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
 
     public delegate void UpdatePrivacyStatusDelegate();
 
-    public delegate void UpdateUserDetails(User i_User);
+ //   public delegate void UpdateUserDetails(User i_User);
 
     public class FacebookAppEngine
     {
@@ -59,7 +57,7 @@ namespace FacebookDesktopApp
 
         public event LoginErrorDelegate NoticingLoginError;
 
-        public event UpdateUserDetails updateUserDetails;
+     //   public event UpdateUserDetails updateUserDetails;
 
         public event UpdateProfilePictureDelegate UpdatingProfilePicture;
 
@@ -73,17 +71,16 @@ namespace FacebookDesktopApp
 
         public event UpdateNameDelegate UpdatingName;
 
-        public event UpdatePrivacyStatusDelegate UpdatingPrivacyData;
+      //  public event UpdatePrivacyStatusDelegate UpdatingPrivacyData;
 
-        public event UpdateOldFriendsDelegate UpdatingOldFriends;
 
         public event UpdateGenderDelegate UpdatingGender;
 
-        public event AddAlbumsDelegate AddingAlbums;
+      //  public event AddAlbumsDelegate AddingAlbums;
 
-        public event AddCheckInDelegate AddingCheckIn;
+       // public event AddCheckInDelegate AddingCheckIn;
 
-        public event UpdateLikesDataDelegate UpdateLikesData;
+       // public event UpdateLikesDataDelegate UpdateLikesData;
 
         public void Login()
         {
@@ -129,7 +126,7 @@ namespace FacebookDesktopApp
 
         public void FetchUserDetails()
         {
-            updateUserDetails?.Invoke(FacebookUser);
+        //    updateUserDetails?.Invoke(FacebookUser);
         }
 
         public void Connect()
@@ -185,7 +182,7 @@ namespace FacebookDesktopApp
             }
             finally
             {
-                UpdateLikesData(likesDictionary); //// In Finally because we want to display Something
+         //       UpdateLikesData(likesDictionary); //// In Finally because we want to display Something
             }
         }
 
@@ -226,38 +223,25 @@ namespace FacebookDesktopApp
             }
         }
 
-        public void FetchCheckIns()
-        {
-            AddingCheckIn?.Invoke(FacebookUser.Checkins);
-        }
+        //public void FetchCheckIns()
+        //{
+        //    AddingCheckIn?.Invoke(FacebookUser.Checkins);
+        //}
 
         public void FetchOldFriends()
         {
+            r_OldFriends.Clear();
             updateFriendsFile();
             fetchOldFriendsFromFile();
-
-            try
-            {
-                foreach (OldFriend oldFriend in r_OldFriends)
-                {
-                    UpdatingOldFriends?.Invoke(oldFriend);
-                }
-            }
-            catch (NullReferenceException e)
-            {
-                throw new NullReferenceException("old friend handler is null", e);
-            }
+          //  UpdatingOldFriends?.Invoke(r_OldFriends);
         }
 
-        public void FetchPhotos()
-        {
-            AddingAlbums?.Invoke(FacebookUser.Albums);
-        }
+       
 
-        public void FetchPrivacyData()
-        {
-            UpdatingPrivacyData?.Invoke();
-        }
+        //public void FetchPrivacyData()
+        //{
+        //    UpdatingPrivacyData?.Invoke();
+        //}
 
         private void fetchOldFriendsFromFile()
         {
@@ -334,10 +318,7 @@ namespace FacebookDesktopApp
             FacebookUser.PostStatus(i_StringToPost);
         }
 
-        //public FacebookObjectCollection<User> GetFriends()
-        //{
-        //    return FacebookUser.Friends;
-        //}
+      
     }
 
     //// List of permissions denied:
