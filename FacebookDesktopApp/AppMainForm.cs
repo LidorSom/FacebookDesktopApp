@@ -1,14 +1,6 @@
-﻿
-using FacebookDesktopAppFacades;
+﻿using FacebookDesktopAppFacades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-
 
 namespace FacebookDesktopApp
 {
@@ -45,10 +37,17 @@ namespace FacebookDesktopApp
         {
             base.OnShown(e);
 
-            if (r_ApplicationSettings.AutoLogin && !string.IsNullOrEmpty(r_ApplicationSettings.AccessToken))
+            try
             {
-                r_AppEngine.Connect();
-                showMenuFormAndUpdateMainForm();
+                if (r_ApplicationSettings.AutoLogin && !string.IsNullOrEmpty(r_ApplicationSettings.AccessToken))
+                {
+                    r_AppEngine.Connect();
+                    showMenuFormAndUpdateMainForm();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Please login manually, auto-login didn't succeed: {0}",exception.Message);
             }
         }
 
@@ -75,14 +74,14 @@ namespace FacebookDesktopApp
             {
                 try
                 {
-                    r_AppEngine.Logout();
+                    //r_AppEngine.Logout();
+                    FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
                 }
                 catch (Exception exception)
                 {
                     showFailLogoutMessage(exception);
                 }
             }
-
         }
 
         private void showMenuFormAndUpdateMainForm()
@@ -122,7 +121,9 @@ namespace FacebookDesktopApp
         {
             try
             {
-                r_AppEngine.Logout();
+                 FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
+
+                // r_AppEngine.Logout();
             }
             catch (Exception exception)
             {

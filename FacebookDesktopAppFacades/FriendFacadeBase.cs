@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using FacebookDesktopApp;
 using FacebookWrapper.ObjectModel;
 
@@ -9,20 +6,21 @@ namespace FacebookDesktopAppFacades
 {
     internal class FriendFacadeBase
     {
-        private FacadesShardData m_FacadesShardData { get; set; } = FacadesShardData.GetFacadesShardDataInstance();
+        private FacadesSharedData FacadesSharedData { get; } = FacadesSharedData.GetFacadesSharedDataInstance();
 
         private readonly List<User> r_FriendsToUpdate = new List<User>();
 
-        public string FriendsTextFile { get;private set; }
+        public string FriendsTextFile { get; private set; }
 
         public FriendFacadeBase()
         {
             FriendsTextFile = string.Format(
                 "{0}{1}{2}",
                 "FriendsHistory",
-                m_FacadesShardData.FacebookUser.Id,
+                FacadesSharedData.FacebookUser.Id,
                 ".txt");
         }
+
         //private void fetchOldFriendsFromFile()
         //{
         //    using (OldFriendStreamAdapter fileStream = new OldFriendStreamAdapter(FriendsTextFile))
@@ -31,7 +29,7 @@ namespace FacebookDesktopAppFacades
 
         //        while ((oldFriend = fileStream.ReadOldFriend()) != null)
         //        {
-        //            if (searchInFriendsListById(oldFriend.Id) == false)
+        //            if (SearchInFriendsListById(oldFriend.Id) == false)
         //            {
         //                r_OldFriends.Add(oldFriend);
         //            }
@@ -40,18 +38,19 @@ namespace FacebookDesktopAppFacades
         //}
 
         public void CompareAndUpdateOldFriendsFile()
-        { 
-            foreach (User friend in m_FacadesShardData.FacebookUser.Friends)
         {
-            if (searchInFriendsFile(friend) == false)
+            foreach (User friend in FacadesSharedData.FacebookUser.Friends)
             {
-                r_FriendsToUpdate.Add(friend);
+                if (SearchInFriendsFile(friend) == false)
+                {
+                    r_FriendsToUpdate.Add(friend);
+                }
             }
+
+            updateFriendsFile();
         }
 
-        updateFriendsFile();
-    }
-        public bool searchInFriendsFile(User i_FriendId)
+        public bool SearchInFriendsFile(User i_FriendId)
         {
             bool doesExistInFile = false;
 
@@ -63,33 +62,34 @@ namespace FacebookDesktopAppFacades
             return doesExistInFile;
         }
 
-        public bool searchInFriendsListById(string i_Id)
+        public bool SearchInFriendsListById(string i_Id)
+        {
+            bool doesExistInFriendsList = false;
+
+            foreach (User friend in FacadesSharedData.FacebookUser.Friends)
             {
-                bool doesExistInFriendsList = false;
-
-                foreach (User friend in m_FacadesShardData.FacebookUser.Friends)
+                if (i_Id == friend.Id)
                 {
-                    if (i_Id == friend.Id)
-                    {
-                        doesExistInFriendsList = true;
-                        break;
-                    }
+                    doesExistInFriendsList = true;
+                    break;
                 }
-
-                return doesExistInFriendsList;
             }
 
-            private void updateFriendsFile()
+            return doesExistInFriendsList;
+        }
+
+        private void updateFriendsFile()
+        {
+            using (OldFriendStreamWriterAdapter streamWriterAdapter = new OldFriendStreamWriterAdapter(FriendsTextFile))
             {
-                using (OldFriendStreamWriterAdapter streamWriterAdapter = new OldFriendStreamWriterAdapter(FriendsTextFile))
+                foreach (User friend in r_FriendsToUpdate)
                 {
-                    foreach (User friend in r_FriendsToUpdate)
-                    {
-                        streamWriterAdapter.WriteFriend(friend);
-                    }
+                    streamWriterAdapter.WriteFriend(friend);
                 }
-                r_FriendsToUpdate.Clear();
             }
+
+            r_FriendsToUpdate.Clear();
         }
     }
+}
 

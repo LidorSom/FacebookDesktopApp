@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FacebookWrapper;
+
 namespace FacebookDesktopAppFacades
 {
     public delegate void LoginErrorDelegate(string i_ErrorMessage);
-   
+
     public class AppMainFacade
     {
         private const string k_AppId = "701913560360175";
         private const byte k_CollectionLimit = 50;
-        private FacadesShardData facadesShardData =
-            FacadesShardData.GetFacadesShardDataInstance();
+        private readonly FacadesSharedData r_FacadesSharedData =
+            FacadesSharedData.GetFacadesSharedDataInstance();
         private LoginResult m_LoginResult;
         public string AccessToken { get; set; }
         public event LoginErrorDelegate NoticingLoginError;
         public event Action LoggedOutSuccessfully;
+
         public void Login()
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -44,7 +42,7 @@ namespace FacebookDesktopAppFacades
 
             if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage) || m_LoginResult.ErrorMessage == " ()")
             {
-                facadesShardData.FacebookUser = m_LoginResult.LoggedInUser;
+                r_FacadesSharedData.FacebookUser = m_LoginResult.LoggedInUser;
                 AccessToken = m_LoginResult.AccessToken;
             }
             else
@@ -55,15 +53,21 @@ namespace FacebookDesktopAppFacades
 
         public void Connect()
         {
-            //must add condtions and try& catch
-            m_LoginResult = FacebookService.Connect(AccessToken);
-            facadesShardData.FacebookUser = m_LoginResult.LoggedInUser;
+            try
+            {
+                m_LoginResult = FacebookService.Connect(AccessToken);
+                r_FacadesSharedData.FacebookUser = m_LoginResult.LoggedInUser;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Connection failed", e);
+            }
         }
+
         public void Logout()
         {
             FacebookService.Logout(LoggedOutSuccessfully);
             AccessToken = null;
         }
-
     }
 }
