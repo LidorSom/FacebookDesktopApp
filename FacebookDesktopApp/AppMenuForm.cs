@@ -6,7 +6,6 @@ namespace FacebookDesktopApp
 {
     public partial class AppMenuForm : Form
     {
-        public FacebookAppEngine AppEngine { get; set; }
         private eMenuChoice MenuChoice { get; set; }
 
         public AppMenuForm()
@@ -26,7 +25,7 @@ namespace FacebookDesktopApp
 
         private void activateForm(eMenuChoice i_MenuChoice)
         {
-            Form toDisplayForm = FormFactory.GetForm(i_MenuChoice, AppEngine);
+            Form toDisplayForm = FormFactory.GetForm(i_MenuChoice);
             Thread thread = new Thread((() => toDisplayForm.ShowDialog()));
             thread.Start();
         }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class LikesCounterForm : Form
     {
-        private readonly FacebookAppEngine r_AppEngine;
-
-        public LikesCounterForm(FacebookAppEngine i_AppEngine)
+        private readonly LikeCounterFacade r_AppEngine = new LikeCounterFacade();
+        //move it all to data binding!!!!
+        public LikesCounterForm()
         {
-            r_AppEngine = i_AppEngine;
             r_AppEngine.UpdateLikesData += updateLikesData;
             InitializeComponent();
         }
@@ -42,6 +42,11 @@ namespace FacebookDesktopApp
 
                 likesDataListView.Invoke(new Action(() => likesDataListView.Items.Add(itemToAdd)));
             }
+        }
+
+        private void likesDataListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

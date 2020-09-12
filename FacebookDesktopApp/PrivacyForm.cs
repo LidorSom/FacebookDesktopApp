@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 
 namespace FacebookDesktopApp
 {
     public partial class PrivacyForm : Form
     {
-        private readonly FacebookAppEngine r_AppEngine;
+        //move it all to data binding & separate  Thread ! 
+        private readonly PrivacyFacade r_AppEngine = new PrivacyFacade();
 
-        public PrivacyForm(FacebookAppEngine i_AppEngine)
+        public PrivacyForm()
         {
-            r_AppEngine = i_AppEngine;
             r_AppEngine.UpdatingPrivacyData += updateBindingSources;
             InitializeComponent();
         }
@@ -22,12 +23,18 @@ namespace FacebookDesktopApp
 
         private void updateBindingSources()
         {
-           eventBindingSource.DataSource = r_AppEngine.Events; 
-           // groupBindingSource.DataSource = r_AppEngine.Groups; // groups' privacy - no permission
-           albumBindingSource.DataSource = r_AppEngine.Albums;
+            // bad implementation, you shouldnt take data like this, use delegates !!!
+            //eventBindingSource.DataSource = r_AppEngine.Events; 
+            //// groupBindingSource.DataSource = r_AppEngine.Groups; // groups' privacy - no permission
+            //albumBindingSource.DataSource = r_AppEngine.Albums;
         }
 
         private void privcaySettingsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void privcaySettingsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

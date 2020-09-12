@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class PhotosForm : Form
     {
-        private readonly FacebookAppEngine  r_AppEngine;
-
-        public PhotosForm(FacebookAppEngine i_AppEngine)
+        private readonly PhotosFacade r_AppEngine = new PhotosFacade();
+        public PhotosForm()
         {
-            r_AppEngine = i_AppEngine;
-            i_AppEngine.AddingAlbums += setAlbum;
+            r_AppEngine.AddingAlbums += setAlbum;
             InitializeComponent();
         }
 
@@ -31,6 +30,16 @@ namespace FacebookDesktopApp
         private void AlbumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             photoBindingSource.DataSource = (AlbumsListBox.SelectedItem as Album).Photos;
+        }
+
+        private void photoBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void photosListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

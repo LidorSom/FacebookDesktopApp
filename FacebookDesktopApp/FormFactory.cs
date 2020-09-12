@@ -8,6 +8,7 @@ namespace FacebookDesktopApp
 {
     public enum eMenuChoice
     {
+        Menu = 0,
         profile = 1,
         friends = 2,
         oldFriends = 3,
@@ -21,36 +22,39 @@ namespace FacebookDesktopApp
     public class FormFactory
     {
 
-        public static Form GetForm(eMenuChoice i_MenuChoice, FacebookAppEngine i_AppEngine)
+        public static Form GetForm(eMenuChoice i_MenuChoice)
         {
             Form toReturnForm;
 
             switch (i_MenuChoice)
             {
-                case eMenuChoice.profile:
-                    toReturnForm = new MyProfileForm(i_AppEngine) ;
+                case eMenuChoice.Menu:
+                    toReturnForm = new AppMenuForm();
                     break;
-
+                case eMenuChoice.profile:
+                    toReturnForm = new MyProfileForm() ;
+                    break;
                 case eMenuChoice.friends:
-                    toReturnForm = new FriendsForm(i_AppEngine);
+                    toReturnForm = new FriendsForm();
                     break;
                 case eMenuChoice.photos:
-                    toReturnForm= new PhotosForm(i_AppEngine);
+                    toReturnForm= new PhotosForm();
                     break;
                 case eMenuChoice.oldFriends:
-                    toReturnForm=new OldFriendsForm(i_AppEngine);
+                    toReturnForm=new OldFriendsForm();
                     break;
                 case eMenuChoice.likeCounter:
-                    toReturnForm = new LikesCounterForm(i_AppEngine);
+                    toReturnForm = new LikesCounterForm();
                     break;
                 case eMenuChoice.checkIns:
-                    toReturnForm= new CheckInForm(i_AppEngine);
+                    toReturnForm= new CheckInForm();
                     break;
                 case eMenuChoice.posts:
-                    toReturnForm = new PostsForm(i_AppEngine);
+                    toReturnForm = new PostsForm();
                     break;
                 case eMenuChoice.privacy:
-                    toReturnForm = new PrivacyForm(i_AppEngine);
+                    toReturnForm = new PrivacyForm();
+
                     break;
 
                 default:

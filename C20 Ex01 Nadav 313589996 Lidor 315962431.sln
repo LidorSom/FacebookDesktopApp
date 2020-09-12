@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookDesktopApp", "Faceb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BDBDAA44-2B6B-4225-AB68-7B5193F7B085}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookDesktopAppFacades", "FacebookDesktopAppFacades\FacebookDesktopAppFacades.csproj", "{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{8699991E-FFC1-4898-A14B-A0B0EBA54061}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8699991E-FFC1-4898-A14B-A0B0EBA54061}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8699991E-FFC1-4898-A14B-A0B0EBA54061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

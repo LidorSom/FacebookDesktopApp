@@ -1,39 +1,50 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
     public partial class OldFriendsForm : Form
     {
-        private readonly FacebookAppEngine r_AppEngine;
+        private readonly OldFriendsFacade r_AppEngine = new OldFriendsFacade();
 
-        public OldFriendsForm(FacebookAppEngine i_AppEngine)
+        public OldFriendsForm()
         {
-            r_AppEngine = i_AppEngine;
             r_AppEngine.UpdatingOldFriends += addOldFriends;
             InitializeComponent();
         }
 
-        private void addOldFriends(OldFriend i_OldFriend)
+        
+
+        private void addOldFriends(List<OldFriend> i_OldFriends)
         {
-            OldFriendsListBox.Items.Add(i_OldFriend);
+            oldFriendBindingSource.DataSource = i_OldFriends;
+      
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
-            r_AppEngine.FetchOldFriends();
+            Thread thread = new Thread(()=>r_AppEngine.FetchOldFriends());
+            thread.Start();
         }
 
-        private void OldFriendsListBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void OldFriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OldFriend chosenOldFriend = OldFriendsListBox.SelectedItem as OldFriend;
+            
+        }
 
-            if (chosenOldFriend != null)
-            {
-                OldFriendPictureBox.ImageLocation = chosenOldFriend.ProfilePictureUrl;
-            }
+        private void profilePictureUrlPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profilePictureUrlPictureBox_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

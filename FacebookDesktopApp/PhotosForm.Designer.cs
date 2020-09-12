@@ -68,11 +68,12 @@
             this.photosListBox.Name = "photosListBox";
             this.photosListBox.Size = new System.Drawing.Size(120, 260);
             this.photosListBox.TabIndex = 1;
-        
+            this.photosListBox.SelectedIndexChanged += new System.EventHandler(this.photosListBox_SelectedIndexChanged);
             // 
             // photoBindingSource
             // 
             this.photoBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Photo);
+            this.photoBindingSource.CurrentChanged += new System.EventHandler(this.photoBindingSource_CurrentChanged);
             // 
             // panel1
             // 
