@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
     public delegate void AddCheckInDelegate(FacebookObjectCollection<Checkin> i_CheckIns);
+
     public class CheckInFacade
     {
         public event AddCheckInDelegate AddingCheckIn;
-        private readonly FacadesShardData m_FacadesShardData  = FacadesShardData.GetFacadesShardDataInstance();
+        private readonly FacadesSharedData r_FacadesSharedData  = FacadesSharedData.GetFacadesSharedDataInstance();
 
         public void FetchCheckIns()
         {
-            AddingCheckIn?.Invoke(m_FacadesShardData.FacebookUser.Checkins);
+            AddingCheckIn?.Invoke(r_FacadesSharedData.FacebookUser.Checkins);
         }
     }
 }

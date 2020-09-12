@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="AppMainFacade.cs" />
     <Compile Include="CheckInFacade.cs" />
-    <Compile Include="FacadesShardData.cs" />
+    <Compile Include="FacadesSharedData.cs" />
     <Compile Include="FriendFacadeBase.cs" />
     <Compile Include="FriendsFacade.cs" />
     <Compile Include="LikeCounterFacade.cs" />

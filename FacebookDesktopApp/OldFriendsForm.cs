@@ -17,8 +17,6 @@ namespace FacebookDesktopApp
             InitializeComponent();
         }
 
-        
-
         private void addOldFriends(List<OldFriend> i_OldFriends)
         {
             oldFriendBindingSource.DataSource = i_OldFriends;
@@ -35,11 +33,6 @@ namespace FacebookDesktopApp
         private void OldFriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-        }
-
-        private void profilePictureUrlPictureBox_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void profilePictureUrlPictureBox_Click_1(object sender, EventArgs e)

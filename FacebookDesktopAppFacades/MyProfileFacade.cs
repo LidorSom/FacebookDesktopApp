@@ -10,7 +10,7 @@ namespace FacebookDesktopAppFacades
     public class MyProfileFacade
     {
         public event UpdateUserDetails updateUserDetails;
-        private FacadesShardData m_facadesShardData =  FacadesShardData.GetFacadesShardDataInstance();
+        private FacadesSharedData m_facadesShardData =  FacadesSharedData.GetFacadesSharedDataInstance();
         public void FetchUserDetails()
         {
             updateUserDetails?.Invoke(m_facadesShardData.FacebookUser);

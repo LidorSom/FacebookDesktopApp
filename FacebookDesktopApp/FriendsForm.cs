@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using  System.Threading;
 using FacebookDesktopAppFacades;
@@ -15,9 +9,9 @@ namespace FacebookDesktopApp
     public partial class FriendsForm : Form
     {
         private readonly FriendsFacade r_AppEngine = new FriendsFacade();
+
         public FriendsForm()
         {
-           
             r_AppEngine.UpdatingFriendsList += updateFriendsList;
             InitializeComponent();
         }
@@ -25,7 +19,7 @@ namespace FacebookDesktopApp
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            Thread thread =  new Thread(new ThreadStart(()=> r_AppEngine.FetchFriends()));
+            Thread thread = new Thread(() => r_AppEngine.FetchFriends());
             thread.Start();
         }
 

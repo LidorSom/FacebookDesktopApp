@@ -10,7 +10,7 @@ namespace FacebookDesktopAppFacades
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
     public class LikeCounterFacade
     {
-        private FacadesShardData mFacadesShardData = FacadesShardData.GetFacadesShardDataInstance();
+        private FacadesSharedData mFacadesShardData = FacadesSharedData.GetFacadesSharedDataInstance();
         public event UpdateLikesDataDelegate UpdateLikesData;
         public void FetchLikesData()
         {

@@ -1,19 +1,18 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace FacebookDesktopAppFacades
 {
     public delegate void AddAlbumsDelegate(FacebookObjectCollection<Album> i_Albums);
+
     public class PhotosFacade
     {
-        private FacadesShardData m_FacadesShardData = FacadesShardData.GetFacadesShardDataInstance();
+        private readonly FacadesSharedData r_FacadesSharedData = FacadesSharedData.GetFacadesSharedDataInstance();
+
         public event AddAlbumsDelegate AddingAlbums;
+
         public void FetchPhotos()
         {
-            AddingAlbums?.Invoke(m_FacadesShardData.FacebookUser.Albums);
+            AddingAlbums?.Invoke(r_FacadesSharedData.FacebookUser.Albums);
         }
     }
 }
