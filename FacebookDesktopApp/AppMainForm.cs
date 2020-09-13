@@ -74,8 +74,8 @@ namespace FacebookDesktopApp
             {
                 try
                 {
-                    //r_AppEngine.Logout();
-                    FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
+                    r_AppEngine.Logout(); // here
+                   // FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);    // <-- logging out from the UI works
                 }
                 catch (Exception exception)
                 {
@@ -121,9 +121,9 @@ namespace FacebookDesktopApp
         {
             try
             {
-                 FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
+                r_AppEngine.Logout(); // here
 
-                // r_AppEngine.Logout();
+               // FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
             }
             catch (Exception exception)
             {
