@@ -4,3 +4,5 @@
 /.vs
 /FacebookDesktopApp/obj
 /FacebookDesktopApp/bin
+FacebookDesktopApp/AppMainForm.cs
+FacebookDesktopAppFacades/bin/Debug
