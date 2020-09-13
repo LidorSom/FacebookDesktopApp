@@ -120,7 +120,13 @@ namespace FacebookDesktopApp
         {
             try
             {
+<<<<<<< HEAD
                 r_AppEngine.Logout(); 
+=======
+                //    r_AppEngine.Logout(); // here
+
+                FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
+>>>>>>> IUserStream
             }
             catch (Exception exception)
             {

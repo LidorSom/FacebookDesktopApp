@@ -10,20 +10,19 @@ namespace FacebookDesktopAppFacades
 
         private readonly List<User> r_FriendsToUpdate = new List<User>();
 
-        public string FriendsTextFile { get; private set; }
+        public string FriendsDataPath { get; private set; }
 
         public FriendFacadeBase()
         {
-            FriendsTextFile = string.Format(
-                "{0}{1}{2}",
+            FriendsDataPath = string.Format(
+                "{0}{1}",
                 "FriendsHistory",
-                FacadesSharedData.FacebookUser.Id,
-                ".txt");
+                FacadesSharedData.FacebookUser.Id);
         }
 
         //private void fetchOldFriendsFromFile()
         //{
-        //    using (OldFriendStreamAdapter fileStream = new OldFriendStreamAdapter(FriendsTextFile))
+        //    using (OldFriendStreamAdapter fileStream = new OldFriendStreamAdapter(FriendsDataPath))
         //    {
         //        OldFriend oldFriend;
 
@@ -54,9 +53,9 @@ namespace FacebookDesktopAppFacades
         {
             bool doesExistInFile = false;
 
-            using (OldFriendStreamAdapter streamReaderAdapter = new OldFriendStreamAdapter(FriendsTextFile))
+            using (IUserReader streamReaderAdapter = IOldFriendReaderFactory.GetUserReader(FriendsDataPath))
             {
-                doesExistInFile = streamReaderAdapter.searchFriend(i_FriendId);
+                doesExistInFile = streamReaderAdapter.SearchFriend(i_FriendId);
             }
 
             return doesExistInFile;
@@ -80,7 +79,7 @@ namespace FacebookDesktopAppFacades
 
         private void updateFriendsFile()
         {
-            using (OldFriendStreamWriterAdapter streamWriterAdapter = new OldFriendStreamWriterAdapter(FriendsTextFile))
+            using (IUserWriter streamWriterAdapter = IUserWriterFactory.GetUserWriter(FriendsDataPath))
             {
                 foreach (User friend in r_FriendsToUpdate)
                 {

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
 
-    public class OldFriendStreamAdapter : IDisposable
+    public class OldFriendStreamAdapter : IUserReader
     {
         private readonly string r_FileTextPath = null;
         private readonly StreamReader r_streamReader = null;
@@ -54,13 +55,13 @@ namespace FacebookDesktopApp
             return toReturnOlfFriend;
         }
 
-        public bool searchFriend(User i_User)
+        public bool SearchFriend(User i_User)
         {
             bool doesExistInFile = false;
 
             if (File.Exists(r_FileTextPath))
             {
-                //StreamReader newFileStream = new StreamReader(r_FileTextPath);
+                
                 
                 try
                 {

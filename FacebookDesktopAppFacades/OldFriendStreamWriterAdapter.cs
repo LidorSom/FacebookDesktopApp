@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
+using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
-    public class OldFriendStreamWriterAdapter: IDisposable
+    public class OldFriendStreamWriterAdapter : IUserWriter
     {
 
         private readonly string r_FileTextPath = null;

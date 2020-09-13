@@ -55,6 +55,10 @@
     <Compile Include="FacadesSharedData.cs" />
     <Compile Include="FriendFacadeBase.cs" />
     <Compile Include="FriendsFacade.cs" />
+    <Compile Include="IOldFriendReaderFactory.cs" />
+    <Compile Include="IUserReader.cs" />
+    <Compile Include="IUserWriter.cs" />
+    <Compile Include="IUserWriterFactory.cs" />
     <Compile Include="LikeCounterFacade.cs" />
     <Compile Include="MyProfileFacade.cs" />
     <Compile Include="OldFriend.cs" />
