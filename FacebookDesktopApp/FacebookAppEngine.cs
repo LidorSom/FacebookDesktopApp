@@ -305,7 +305,7 @@ namespace FacebookDesktopApp
 
             using (OldFriendStreamAdapter streamReaderAdapter = new OldFriendStreamAdapter(FriendsTextFile))
             {
-                doesExistInFile = streamReaderAdapter.searchFriend(i_FriendId);
+                doesExistInFile = streamReaderAdapter.SearchFriend(i_FriendId);
             }
 
             return doesExistInFile;

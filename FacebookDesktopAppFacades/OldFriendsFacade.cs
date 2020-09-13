@@ -33,8 +33,8 @@ namespace FacebookDesktopAppFacades
 
         private void fetchOldFriendsFromFile()
         {
-            using (OldFriendStreamAdapter fileStream =
-                new OldFriendStreamAdapter(r_FriendFacadeBase.FriendsTextFile)) 
+            using (IUserReader fileStream =
+               IOldFriendReaderFactory.GetUserReader(r_FriendFacadeBase.FriendsDataPath)) 
             {
                 OldFriend oldFriend;
 
