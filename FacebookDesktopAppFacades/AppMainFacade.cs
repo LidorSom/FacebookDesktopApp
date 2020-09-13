@@ -69,5 +69,6 @@ namespace FacebookDesktopAppFacades
             FacebookService.Logout(LoggedOutSuccessfully);
             AccessToken = null;
         }
+
     }
 }

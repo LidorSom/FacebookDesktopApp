@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FacebookDesktopAppFacades">
+      <HintPath>.\FacebookDesktopAppFacades.dll</HintPath>
+    </Reference>
     <Reference Include="FbGraphApiWrapper">
       <HintPath>.\FbGraphApiWrapper.dll</HintPath>
     </Reference>
@@ -179,10 +182,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FacebookDesktopAppFacades\FacebookDesktopAppFacades.csproj">
-      <Project>{e7171049-dd3e-4cd0-99ad-d750b34eff9b}</Project>
-      <Name>FacebookDesktopAppFacades</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
