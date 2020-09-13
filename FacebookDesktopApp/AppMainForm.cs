@@ -121,9 +121,9 @@ namespace FacebookDesktopApp
         {
             try
             {
-                r_AppEngine.Logout(); // here
+                //    r_AppEngine.Logout(); // here
 
-               // FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
+                FacebookWrapper.FacebookService.Logout(showSuccessLogoutMessage);
             }
             catch (Exception exception)
             {

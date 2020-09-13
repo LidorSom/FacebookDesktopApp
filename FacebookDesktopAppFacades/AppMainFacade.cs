@@ -1,6 +1,7 @@
 ﻿using System;
 using FacebookWrapper;
 
+
 namespace FacebookDesktopAppFacades
 {
     public delegate void LoginErrorDelegate(string i_ErrorMessage);
@@ -66,7 +67,7 @@ namespace FacebookDesktopAppFacades
 
         public void Logout()
         {
-            FacebookService.Logout(LoggedOutSuccessfully);
+              FacebookWrapper.FacebookService.Logout(LoggedOutSuccessfully); ;
             AccessToken = null;
         }
     }
