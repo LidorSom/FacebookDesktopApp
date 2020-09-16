@@ -4,15 +4,14 @@ namespace FacebookDesktopAppFacades
 {
     internal class FacadesSharedData
     {
-        private static FacadesSharedData s_FacadesSharedData;
+        private static readonly object sr_ObjectToLock = new object();
 
-        private static readonly object  sr_ObjectToLock = new object();
+        private static FacadesSharedData s_FacadesSharedData;
 
         public User FacebookUser { get; set; }
 
         private FacadesSharedData()
         {
-
         }
 
         public static FacadesSharedData GetFacadesSharedDataInstance()

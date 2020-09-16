@@ -7,9 +7,10 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
-    interface IUserReader: IDisposable
+    public interface IUserReader : IDisposable
     {
          bool SearchFriend(User i_User);
+
          OldFriend ReadOldFriend();
     }
 }

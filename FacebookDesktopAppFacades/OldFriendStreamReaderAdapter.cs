@@ -8,21 +8,19 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopApp
 {
-
-    public class OldFriendStreamAdapter : IUserReader
+    public class OldFriendStreamReaderAdapter : IUserReader
     {
         private readonly string r_FileTextPath = null;
         private readonly StreamReader r_streamReader = null;
         
-        
-        public OldFriendStreamAdapter(string i_FileTextPath)
+        public OldFriendStreamReaderAdapter(string i_FileTextPath)
         {
             r_FileTextPath = i_FileTextPath;
+
             if (File.Exists(r_FileTextPath))
             {
                 r_streamReader = new StreamReader(r_FileTextPath);
             }
-
         }
 
         public OldFriend ReadOldFriend()
@@ -34,22 +32,23 @@ namespace FacebookDesktopApp
                 try
                 {
                     string currentLine;
+
                     if ((currentLine = r_streamReader.ReadLine()) != null)
                     {
                         string[] arrayOfUserData = currentLine.Split(' ');
 
                         string stringToAdd = string.Format("{0} {1}", arrayOfUserData[1], arrayOfUserData[2]);
 
-                        toReturnOlfFriend = new OldFriend(arrayOfUserData[0]
-                            , stringToAdd
-                            , arrayOfUserData[3]);
+                        toReturnOlfFriend = new OldFriend(
+                            arrayOfUserData[0],
+                            stringToAdd,
+                            arrayOfUserData[3]);
                     }
                 }
-                catch(NullReferenceException nullReferenceException)
+                catch(Exception e)
                 {
-                    
+                    throw new Exception("Cannot read", e);
                 }
-
             }
 
             return toReturnOlfFriend;
@@ -61,8 +60,6 @@ namespace FacebookDesktopApp
 
             if (File.Exists(r_FileTextPath))
             {
-                
-                
                 try
                 {
                     string line;

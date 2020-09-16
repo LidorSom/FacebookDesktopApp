@@ -6,12 +6,11 @@ using FacebookDesktopApp;
 
 namespace FacebookDesktopAppFacades
 {
-    static class IUserWriterFactory
+    public static class WriterFactory
     {
         public static IUserWriter GetUserWriter(string i_Path)
         {
-            return new OldFriendStreamWriterAdapter(string.Format("{0}{1}",i_Path, ".txt"));
+            return new OldFriendStreamWriterAdapter(string.Format("{0}{1}", i_Path, ".txt"));
         }
-
     }
 }

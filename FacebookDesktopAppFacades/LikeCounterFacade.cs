@@ -6,18 +6,20 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
-
     public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
+
     public class LikeCounterFacade
     {
-        private FacadesSharedData mFacadesShardData = FacadesSharedData.GetFacadesSharedDataInstance();
+        private readonly FacadesSharedData r_FacadesSharedData = FacadesSharedData.GetFacadesSharedDataInstance();
+
         public event UpdateLikesDataDelegate UpdateLikesData;
+
         public void FetchLikesData()
         {
-        
-        Dictionary<User, int> likesDictionary = new Dictionary<User, int>(mFacadesShardData.FacebookUser.Friends.Count);
+            Dictionary<User, int> likesDictionary =
+                new Dictionary<User, int>(r_FacadesSharedData.FacebookUser.Friends.Count);
 
-            foreach (User friend in mFacadesShardData.FacebookUser.Friends)
+            foreach (User friend in r_FacadesSharedData.FacebookUser.Friends)
             {
                 likesDictionary.Add(friend, 0);
             }
@@ -38,7 +40,7 @@ namespace FacebookDesktopAppFacades
 
         private void updateDictionaryWithPhotos(Dictionary<User, int> i_LikesDictionary)
         {
-            foreach (Album album in mFacadesShardData.FacebookUser.Albums)
+            foreach (Album album in r_FacadesSharedData.FacebookUser.Albums)
             {
                 foreach (Photo photo in album.Photos)
                 {
@@ -52,7 +54,7 @@ namespace FacebookDesktopAppFacades
 
         private void updateDictionaryWithPosts(Dictionary<User, int> i_LikesDictionary)
         {
-            foreach (var post in mFacadesShardData.FacebookUser.Posts)
+            foreach (var post in r_FacadesSharedData.FacebookUser.Posts)
             {
                 foreach (User likedUser in post.LikedBy)
                 {
