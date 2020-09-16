@@ -7,6 +7,15 @@ namespace FacebookDesktopAppFacades
     public class CheckInFacade
     {
         public event AddCheckInDelegate AddingCheckIn;
+
+        public int Property
+        {
+            get => default(int);
+            set
+            {
+            }
+        }
+
         private readonly FacadesSharedData r_FacadesSharedData  = FacadesSharedData.GetFacadesSharedDataInstance();
 
         public void FetchCheckIns()

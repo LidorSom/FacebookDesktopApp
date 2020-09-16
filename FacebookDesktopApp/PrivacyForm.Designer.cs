@@ -1,6 +1,6 @@
 ﻿namespace FacebookDesktopApp
 {
-    partial class PrivacyForm
+    public partial class PrivacyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -55,7 +56,7 @@
             AlbumsPrivacy_Label.Size = new System.Drawing.Size(108, 17);
             AlbumsPrivacy_Label.TabIndex = 1;
             AlbumsPrivacy_Label.Text = "Albums Privacy:";
-            AlbumsPrivacy_Label.Click += new System.EventHandler(this.privcaySettingsLabel_Click);
+            AlbumsPrivacy_Label.Click += new System.EventHandler(this.privacySettingsLabel_Click);
             // 
             // EventsPrivacy_Label
             // 
@@ -94,7 +95,7 @@
             this.privcaySettingsListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.privcaySettingsListBox.Size = new System.Drawing.Size(159, 228);
             this.privcaySettingsListBox.TabIndex = 2;
-            this.privcaySettingsListBox.SelectedIndexChanged += new System.EventHandler(this.privcaySettingsListBox_SelectedIndexChanged);
+            this.privcaySettingsListBox.SelectedIndexChanged += new System.EventHandler(this.privacySettingsListBox_SelectedIndexChanged);
             // 
             // eventBindingSource
             // 

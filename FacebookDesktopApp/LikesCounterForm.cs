@@ -10,7 +10,7 @@ namespace FacebookDesktopApp
     public partial class LikesCounterForm : Form
     {
         private readonly LikeCounterFacade r_AppEngine = new LikeCounterFacade();
-        //move it all to data binding!!!!
+
         public LikesCounterForm()
         {
             r_AppEngine.UpdateLikesData += updateLikesData;
@@ -25,7 +25,6 @@ namespace FacebookDesktopApp
             thread.Start();
         }
 
-
         private void updateLikesData(Dictionary<User, int> i_LikesDataDictionary)  // to change it to string Key - client shouldn't know User Class
         {
             foreach (KeyValuePair<User, int> userAndLikeData in i_LikesDataDictionary)
@@ -33,7 +32,6 @@ namespace FacebookDesktopApp
                 ListViewItem itemToAdd = new ListViewItem(userAndLikeData.Key.Name);
 
                 ListViewItem.ListViewSubItem subItemToAdd = new ListViewItem.ListViewSubItem
-
                 {
                     Text = userAndLikeData.Value.ToString()
                 };
@@ -46,7 +44,6 @@ namespace FacebookDesktopApp
 
         private void likesDataListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

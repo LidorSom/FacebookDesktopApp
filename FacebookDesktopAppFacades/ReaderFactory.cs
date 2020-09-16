@@ -7,12 +7,15 @@ using FacebookDesktopApp;
 
 namespace FacebookDesktopAppFacades
 {
-    static class IOldFriendReaderFactory
+    public static class ReaderFactory
     {
         public static IUserReader GetUserReader(string i_Path)
         {
-            return new OldFriendStreamAdapter(string.Format("{0}{1}",
-                i_Path, ".txt"));
+            return new OldFriendStreamReaderAdapter(
+                string.Format(
+                    "{0}{1}",
+                    i_Path,
+                    ".txt"));
         }
     }
 }

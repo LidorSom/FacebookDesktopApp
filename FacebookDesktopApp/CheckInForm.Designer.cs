@@ -1,6 +1,6 @@
 ﻿namespace FacebookDesktopApp
 {
-    partial class CheckInForm
+    public partial class CheckInForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

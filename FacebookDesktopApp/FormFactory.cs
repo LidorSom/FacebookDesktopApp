@@ -21,7 +21,6 @@ namespace FacebookDesktopApp
 
     public class FormFactory
     {
-
         public static Form GetForm(eMenuChoice i_MenuChoice)
         {
             Form toReturnForm;
@@ -32,22 +31,22 @@ namespace FacebookDesktopApp
                     toReturnForm = new AppMenuForm();
                     break;
                 case eMenuChoice.profile:
-                    toReturnForm = new MyProfileForm() ;
+                    toReturnForm = new MyProfileForm();
                     break;
                 case eMenuChoice.friends:
                     toReturnForm = new FriendsForm();
                     break;
                 case eMenuChoice.photos:
-                    toReturnForm= new PhotosForm();
+                    toReturnForm = new PhotosForm();
                     break;
                 case eMenuChoice.oldFriends:
-                    toReturnForm=new OldFriendsForm();
+                    toReturnForm = new OldFriendsForm();
                     break;
                 case eMenuChoice.likeCounter:
                     toReturnForm = new LikesCounterForm();
                     break;
                 case eMenuChoice.checkIns:
-                    toReturnForm= new CheckInForm();
+                    toReturnForm = new CheckInForm();
                     break;
                 case eMenuChoice.posts:
                     toReturnForm = new PostsForm();
@@ -59,7 +58,6 @@ namespace FacebookDesktopApp
 
                 default:
                     throw new ArgumentException("not a valid choice");
-
             }
 
             return toReturnForm;

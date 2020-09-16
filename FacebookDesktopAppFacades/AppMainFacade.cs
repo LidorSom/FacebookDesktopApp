@@ -1,7 +1,6 @@
 ﻿using System;
 using FacebookWrapper;
 
-
 namespace FacebookDesktopAppFacades
 {
     public delegate void LoginErrorDelegate(string i_ErrorMessage);
@@ -12,9 +11,13 @@ namespace FacebookDesktopAppFacades
         private const byte k_CollectionLimit = 50;
         private readonly FacadesSharedData r_FacadesSharedData =
             FacadesSharedData.GetFacadesSharedDataInstance();
+
         private LoginResult m_LoginResult;
+
         public string AccessToken { get; set; }
+
         public event LoginErrorDelegate NoticingLoginError;
+
         public event Action LoggedOutSuccessfully;
 
         public void Login()
@@ -67,9 +70,8 @@ namespace FacebookDesktopAppFacades
 
         public void Logout()
         {
-              FacebookWrapper.FacebookService.Logout(LoggedOutSuccessfully); ;
+            FacebookService.Logout(LoggedOutSuccessfully);
             AccessToken = null;
         }
-
     }
 }

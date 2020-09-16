@@ -20,22 +20,6 @@ namespace FacebookDesktopAppFacades
                 FacadesSharedData.FacebookUser.Id);
         }
 
-        //private void fetchOldFriendsFromFile()
-        //{
-        //    using (OldFriendStreamAdapter fileStream = new OldFriendStreamAdapter(FriendsDataPath))
-        //    {
-        //        OldFriend oldFriend;
-
-        //        while ((oldFriend = fileStream.ReadOldFriend()) != null)
-        //        {
-        //            if (SearchInFriendsListById(oldFriend.Id) == false)
-        //            {
-        //                r_OldFriends.Add(oldFriend);
-        //            }
-        //        }
-        //    }
-        //}
-
         public void CompareAndUpdateOldFriendsFile()
         {
             foreach (User friend in FacadesSharedData.FacebookUser.Friends)
@@ -53,7 +37,7 @@ namespace FacebookDesktopAppFacades
         {
             bool doesExistInFile = false;
 
-            using (IUserReader streamReaderAdapter = IOldFriendReaderFactory.GetUserReader(FriendsDataPath))
+            using (IUserReader streamReaderAdapter = ReaderFactory.GetUserReader(FriendsDataPath))
             {
                 doesExistInFile = streamReaderAdapter.SearchFriend(i_FriendId);
             }
@@ -79,7 +63,7 @@ namespace FacebookDesktopAppFacades
 
         private void updateFriendsFile()
         {
-            using (IUserWriter streamWriterAdapter = IUserWriterFactory.GetUserWriter(FriendsDataPath))
+            using (IUserWriter streamWriterAdapter = WriterFactory.GetUserWriter(FriendsDataPath))
             {
                 foreach (User friend in r_FriendsToUpdate)
                 {
@@ -91,4 +75,3 @@ namespace FacebookDesktopAppFacades
         }
     }
 }
-

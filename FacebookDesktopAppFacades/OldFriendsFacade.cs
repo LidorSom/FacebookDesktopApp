@@ -19,8 +19,6 @@ namespace FacebookDesktopAppFacades
 
         private readonly List<OldFriend> r_OldFriends = new List<OldFriend>();
 
-        // private readonly List<User> r_FriendsToUpdate = new List<User>();
-
         public event UpdateOldFriendsDelegate UpdatingOldFriends;
 
         public void FetchOldFriends()
@@ -34,7 +32,7 @@ namespace FacebookDesktopAppFacades
         private void fetchOldFriendsFromFile()
         {
             using (IUserReader fileStream =
-               IOldFriendReaderFactory.GetUserReader(r_FriendFacadeBase.FriendsDataPath)) 
+               ReaderFactory.GetUserReader(r_FriendFacadeBase.FriendsDataPath)) 
             {
                 OldFriend oldFriend;
 

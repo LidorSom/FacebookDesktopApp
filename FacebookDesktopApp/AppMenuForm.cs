@@ -26,7 +26,7 @@ namespace FacebookDesktopApp
         private void activateForm(eMenuChoice i_MenuChoice)
         {
             Form toDisplayForm = FormFactory.GetForm(i_MenuChoice);
-            Thread thread = new Thread((() => toDisplayForm.ShowDialog()));
+            Thread thread = new Thread(() => toDisplayForm.ShowDialog());
             thread.Start();
         }
 

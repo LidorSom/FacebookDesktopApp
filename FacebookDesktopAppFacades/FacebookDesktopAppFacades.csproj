@@ -43,10 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -55,15 +53,15 @@
     <Compile Include="FacadesSharedData.cs" />
     <Compile Include="FriendFacadeBase.cs" />
     <Compile Include="FriendsFacade.cs" />
-    <Compile Include="IOldFriendReaderFactory.cs" />
+    <Compile Include="ReaderFactory.cs" />
     <Compile Include="IUserReader.cs" />
     <Compile Include="IUserWriter.cs" />
-    <Compile Include="IUserWriterFactory.cs" />
+    <Compile Include="WriterFactory.cs" />
     <Compile Include="LikeCounterFacade.cs" />
     <Compile Include="MyProfileFacade.cs" />
     <Compile Include="OldFriend.cs" />
     <Compile Include="OldFriendsFacade.cs" />
-    <Compile Include="OldFriendStreamAdapter.cs" />
+    <Compile Include="OldFriendStreamReaderAdapter.cs" />
     <Compile Include="OldFriendStreamWriterAdapter.cs" />
     <Compile Include="PhotosFacade.cs" />
     <Compile Include="PostsFacade.cs" />

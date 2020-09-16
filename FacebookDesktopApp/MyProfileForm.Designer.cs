@@ -1,6 +1,6 @@
 ﻿namespace FacebookDesktopApp
 {
-    partial class MyProfileForm
+    public partial class MyProfileForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

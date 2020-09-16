@@ -69,13 +69,6 @@
     <Compile Include="CheckInForm.Designer.cs">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacebookAppEngine.cs" />
-    <Compile Include="FacebookAppForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FacebookAppForm.Designer.cs">
-      <DependentUpon>FacebookAppForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormFactory.cs" />
     <Compile Include="FriendsForm.cs">
       <SubType>Form</SubType>
@@ -130,9 +123,6 @@
     <EmbeddedResource Include="CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacebookAppForm.resx">
-      <DependentUpon>FacebookAppForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FriendsForm.resx">
       <DependentUpon>FriendsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,9 +170,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

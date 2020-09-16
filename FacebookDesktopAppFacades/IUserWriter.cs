@@ -6,7 +6,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
-    interface IUserWriter : IDisposable
+    public interface IUserWriter : IDisposable
     {
       void WriteFriend(User i_Friend);
     }
