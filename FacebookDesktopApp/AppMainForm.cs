@@ -1,6 +1,6 @@
-﻿using FacebookDesktopAppFacades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookDesktopAppFacades;
 
 namespace FacebookDesktopApp
 {
@@ -47,7 +47,7 @@ namespace FacebookDesktopApp
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Please login manually, auto-login didn't succeed: {0}",exception.Message);
+                MessageBox.Show("Please login manually, auto-login didn't succeed: ", exception.Message);
             }
         }
 
@@ -132,7 +132,6 @@ namespace FacebookDesktopApp
 
         private void AppMainForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -14,17 +14,18 @@ namespace FacebookDesktopApp
 {
     public partial class CheckInForm : Form
     {
-        private CheckInFacade facebookAppEngine = new CheckInFacade();
+        private readonly CheckInFacade r_FacebookAppEngine = new CheckInFacade();
+
         public CheckInForm()
         {
-            facebookAppEngine.AddingCheckIn += updateCheckIns;
+            r_FacebookAppEngine.AddingCheckIn += updateCheckIns;
             InitializeComponent();
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            Thread thread = new Thread(new ThreadStart(()=> facebookAppEngine.FetchCheckIns()));
+            Thread thread = new Thread(() => r_FacebookAppEngine.FetchCheckIns());
             thread.Start();
         }
 
@@ -35,12 +36,12 @@ namespace FacebookDesktopApp
                 checkInListBox.Visible = false;
                 panel1.Visible = false;
             }
+
             checkinBindingSource.DataSource = i_Checkins;
         }
 
         private void checkInListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

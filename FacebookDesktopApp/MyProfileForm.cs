@@ -8,18 +8,17 @@ namespace FacebookDesktopApp
 {
     public partial class MyProfileForm : Form
     {
-        private  MyProfileFacade AppEngine  = new MyProfileFacade();
+        private readonly MyProfileFacade r_AppEngine  = new MyProfileFacade();
         
         public MyProfileForm()
         {
-         
-            AppEngine.updateUserDetails += updateBindingSource;
+            r_AppEngine.updateUserDetails += updateBindingSource;
             InitializeComponent();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Thread thread = new Thread(new ThreadStart(()=> AppEngine.FetchUserDetails()));
+            Thread thread = new Thread(() => r_AppEngine.FetchUserDetails());
             thread.Start();
         }
 
@@ -28,15 +27,12 @@ namespace FacebookDesktopApp
             userBindingSource.DataSource = i_User;
         }
 
-
         private void userBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
         }
 
         private void imageNormalPictureBox_Click_1(object sender, EventArgs e)
         {
-
         }
     }
 }

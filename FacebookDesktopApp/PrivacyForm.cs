@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
-using System.Threading;
 
 namespace FacebookDesktopApp
 {
@@ -21,25 +21,21 @@ namespace FacebookDesktopApp
             base.OnShown(e);
             Thread thread = new Thread(() => r_AppEngine.FetchPrivacyData());
             thread.Start();
-            
         }
 
         private void updateBindingSources(FacebookObjectCollection<Event> i_Events, FacebookObjectCollection<Album> i_Albums)
         {
-
             eventBindingSource.DataSource = i_Events;
             albumBindingSource.DataSource = i_Albums;
             //// groupBindingSource.DataSource = r_AppEngine.Groups; // groups' privacy - no permission
         }
 
-        private void privcaySettingsLabel_Click(object sender, EventArgs e)
+        private void privacySettingsLabel_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void privcaySettingsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void privacySettingsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

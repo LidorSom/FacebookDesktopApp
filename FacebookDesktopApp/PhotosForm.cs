@@ -9,6 +9,7 @@ namespace FacebookDesktopApp
     public partial class PhotosForm : Form
     {
         private readonly PhotosFacade r_AppEngine = new PhotosFacade();
+
         public PhotosForm()
         {
             r_AppEngine.AddingAlbums += setAlbum;
@@ -34,12 +35,10 @@ namespace FacebookDesktopApp
 
         private void photoBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
         }
 
         private void photosListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

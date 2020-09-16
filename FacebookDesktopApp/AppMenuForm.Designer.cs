@@ -1,6 +1,6 @@
 ﻿namespace FacebookDesktopApp
 {
-    partial class AppMenuForm
+    public partial class AppMenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
