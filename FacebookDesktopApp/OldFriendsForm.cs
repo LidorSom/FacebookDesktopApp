@@ -25,7 +25,7 @@ namespace FacebookDesktopApp
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            Thread thread = new Thread(() => r_AppEngine.FetchOldFriends());
+            Thread thread = new Thread(()=>r_AppEngine.FetchOldFriends());
             thread.Start();
         }
 

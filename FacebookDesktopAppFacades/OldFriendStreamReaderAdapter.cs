@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.IO;
-using System.Linq;
-using System.Text;
 using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
@@ -10,9 +8,9 @@ namespace FacebookDesktopApp
 {
     public class OldFriendStreamReaderAdapter : IUserReader
     {
-        private readonly string r_FileTextPath = null;
+        private readonly string r_FileTextPath;
         private readonly StreamReader r_streamReader = null;
-        
+
         public OldFriendStreamReaderAdapter(string i_FileTextPath)
         {
             r_FileTextPath = i_FileTextPath;
@@ -23,7 +21,12 @@ namespace FacebookDesktopApp
             }
         }
 
-        public OldFriend ReadOldFriend()
+        public IEnumerator GetEnumerator()
+        {
+            return new OldFriendStreamReaderEnumerator(this);
+        }
+
+        private OldFriend readOldFriend(long i_FilePosition)
         {
             OldFriend toReturnOlfFriend = null;
 
@@ -31,6 +34,8 @@ namespace FacebookDesktopApp
             {
                 try
                 {
+                    r_streamReader.BaseStream.Position = i_FilePosition;
+
                     string currentLine;
 
                     if ((currentLine = r_streamReader.ReadLine()) != null)
@@ -45,7 +50,7 @@ namespace FacebookDesktopApp
                             arrayOfUserData[3]);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw new Exception("Cannot read", e);
                 }
@@ -62,9 +67,18 @@ namespace FacebookDesktopApp
             {
                 try
                 {
-                    string line;
+                   // string line;
 
-                    while ((line = r_streamReader.ReadLine()) != null)
+                    foreach (OldFriend oldFriend in this)
+                    {
+                        if (oldFriend.Id == i_User.Id)
+                        {
+                            doesExistInFile = true;
+                            break;
+                        }
+                    }
+                    
+                   /* while ((line = r_streamReader.ReadLine()) != null)
                     {
                         string[] arrayOfData = line.Split(' ');
 
@@ -74,6 +88,7 @@ namespace FacebookDesktopApp
                             break;
                         }
                     }
+                    */
                 }
                 finally
                 {
@@ -87,6 +102,40 @@ namespace FacebookDesktopApp
         public void Dispose()
         {
             r_streamReader?.Dispose();
+        }
+
+        private class OldFriendStreamReaderEnumerator : IEnumerator
+        {
+            private const long k_ResetValue = 0;
+            private long m_CurrentPosition;
+            private OldFriend m_CurrentOldFriend;
+            private readonly OldFriendStreamReaderAdapter r_Adapter;
+
+            public OldFriendStreamReaderEnumerator(OldFriendStreamReaderAdapter i_Adapter,
+                long i_FilePosition = k_ResetValue)
+            {
+                m_CurrentPosition = i_FilePosition;
+                m_CurrentOldFriend = null;
+                r_Adapter = i_Adapter;
+            }
+
+            public object Current
+            {
+                get { return m_CurrentOldFriend; }
+            }
+
+            public bool MoveNext()
+            {
+                m_CurrentOldFriend = r_Adapter.readOldFriend(m_CurrentPosition);
+                m_CurrentPosition = r_Adapter.r_streamReader.BaseStream.Position;
+
+                return (m_CurrentOldFriend == null);
+            }
+
+            public void Reset()
+            {
+                m_CurrentPosition = k_ResetValue;
+            }
         }
     }
 }
