@@ -31,6 +31,19 @@ namespace FacebookDesktopAppFacades
 
         private void fetchOldFriendsFromFile()
         {
+            using (OldFriendStreamReaderAdapter fileStream =
+                (OldFriendStreamReaderAdapter)ReaderFactory.GetUserReader(r_FriendFacadeBase.FriendsDataPath)) // to FIX IUserReader?
+            {
+                foreach (OldFriend oldFriend in fileStream)
+                {
+                    if (r_FriendFacadeBase.SearchInFriendsListById(oldFriend.Id) == false)
+                    {
+                        r_OldFriends.Add(oldFriend);
+                    }
+                }
+            }
+
+           /* 
             using (IUserReader fileStream =
                ReaderFactory.GetUserReader(r_FriendFacadeBase.FriendsDataPath)) 
             {
@@ -44,6 +57,7 @@ namespace FacebookDesktopAppFacades
                     }
                 }
             }
+         */   
         }
     }
 }

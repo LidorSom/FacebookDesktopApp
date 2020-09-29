@@ -35,7 +35,8 @@
     <Reference Include="FacebookDesktopAppFacades">
       <HintPath>.\FacebookDesktopAppFacades.dll</HintPath>
     </Reference>
-    <Reference Include="FbGraphApiWrapper">
+    <Reference Include="FbGraphApiWrapper, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>.\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />

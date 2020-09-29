@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections;
 using FacebookDesktopApp;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
-    public interface IUserReader : IDisposable
+    public interface IUserReader : IEnumerable, IDisposable
     {
          bool SearchFriend(User i_User);
 
-         OldFriend ReadOldFriend();
+       //  OldFriend ReadOldFriend();
     }
 }

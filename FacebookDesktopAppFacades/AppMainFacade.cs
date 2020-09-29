@@ -26,8 +26,8 @@ namespace FacebookDesktopAppFacades
             m_LoginResult = FacebookService.Login(
                 k_AppId,
                 "public_profile",
-                "email",
-                "publish_to_groups",
+                "email");
+           /*     "publish_to_groups",
                 "user_birthday",
                 "user_age_range",
                 "user_gender",
@@ -43,7 +43,7 @@ namespace FacebookDesktopAppFacades
                 "user_posts",
                 "user_hometown",
                 "user_photos");
-
+        */
             if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage) || m_LoginResult.ErrorMessage == " ()")
             {
                 r_FacadesSharedData.FacebookUser = m_LoginResult.LoggedInUser;

@@ -36,7 +36,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Facebook.dll</HintPath>
     </Reference>
-    <Reference Include="FbGraphApiWrapper, Version=6.8.0.18, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FbGraphApiWrapper, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\FbGraphApiWrapper.dll</HintPath>
     </Reference>
