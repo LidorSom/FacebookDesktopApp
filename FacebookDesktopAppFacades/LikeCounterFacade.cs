@@ -6,13 +6,16 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookDesktopAppFacades
 {
-    public delegate void UpdateLikesDataDelegate(Dictionary<User, int> i_LikesDictionary);
-
+    public delegate void UpdateLikesDataDelegate(List<KeyValuePair<User, int>> i_LikesDictionary);
+    public delegate bool SortUsersByLikesDelegate
+        (KeyValuePair<User, int> i_KeyValue1, KeyValuePair<User, int> i_KeyValue2);
     public class LikeCounterFacade
     {
         private readonly FacadesSharedData r_FacadesSharedData = FacadesSharedData.GetFacadesSharedDataInstance();
 
         public event UpdateLikesDataDelegate UpdateLikesData;
+
+        public event SortUsersByLikesDelegate SortUsersByLikes;
 
         public void FetchLikesData()
         {
@@ -34,9 +37,33 @@ namespace FacebookDesktopAppFacades
             }
             finally
             {
-                UpdateLikesData(likesDictionary); //// In Finally because we want to display Something
+
+                List<KeyValuePair<User,int>> iKeyValuePairs = likesDictionary.ToList();
+
+
+
+                if (SortUsersByLikes != null)
+                {
+                    for (int i = 0; i < iKeyValuePairs.Count; i++)
+                    {
+                        for (int j = 0; j < iKeyValuePairs.Count - 1; j++)
+                        {
+                            if (SortUsersByLikes(iKeyValuePairs[j], iKeyValuePairs[j + 1]))
+                            {
+                                KeyValuePair<User, int> temp = iKeyValuePairs[j];
+                                iKeyValuePairs[j] = iKeyValuePairs[j + 1];
+                                iKeyValuePairs[j + 1] = temp;
+                            }
+                        }
+                    }
+                }
+
+
+                UpdateLikesData(iKeyValuePairs); //// In Finally because we want to display Something
             }
         }
+
+        
 
         private void updateDictionaryWithPhotos(Dictionary<User, int> i_LikesDictionary)
         {

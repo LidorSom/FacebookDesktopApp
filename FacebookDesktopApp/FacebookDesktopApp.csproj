@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FacebookDesktopAppFacades">
-      <HintPath>.\FacebookDesktopAppFacades.dll</HintPath>
-    </Reference>
     <Reference Include="FbGraphApiWrapper, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\FbGraphApiWrapper.dll</HintPath>
@@ -171,6 +168,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FacebookDesktopAppFacades\FacebookDesktopAppFacades.csproj">
+      <Project>{e7171049-dd3e-4cd0-99ad-d750b34eff9b}</Project>
+      <Name>FacebookDesktopAppFacades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
