@@ -14,18 +14,23 @@ namespace FacebookDesktopApp
         public LikesCounterForm()
         {
             r_AppEngine.UpdateLikesData += updateLikesData;
+            r_AppEngine.SortUsersByLikes += sortUpUserByLikes;
             InitializeComponent();
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
             Thread thread = new Thread(() => r_AppEngine.FetchLikesData());
             thread.Start();
         }
 
-        private void updateLikesData(Dictionary<User, int> i_LikesDataDictionary)  // to change it to string Key - client shouldn't know User Class
+        private bool sortUpUserByLikes(KeyValuePair<User, int> i_KeyValue1, KeyValuePair<User, int> i_KeyValue2)
+        {
+            return i_KeyValue1.Value < i_KeyValue2.Value;
+        }
+
+        private void updateLikesData(List<KeyValuePair<User, int>> i_LikesDataDictionary)  // to change it to string Key - client shouldn't know User Class
         {
             foreach (KeyValuePair<User, int> userAndLikeData in i_LikesDataDictionary)
             {
