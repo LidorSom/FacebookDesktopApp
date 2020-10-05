@@ -20,6 +20,8 @@ namespace FacebookDesktopAppFacades
 
         public event Action LoggedOutSuccessfully;
 
+        public event Action UpdatingSuccessfulLogin;
+
         public void Login()
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -48,6 +50,11 @@ namespace FacebookDesktopAppFacades
             {
                 r_FacadesSharedData.FacebookUser = m_LoginResult.LoggedInUser;
                 AccessToken = m_LoginResult.AccessToken;
+
+                if (UpdatingSuccessfulLogin != null)
+                {
+                    UpdatingSuccessfulLogin.Invoke();
+                }
             }
             else
             {
@@ -61,6 +68,11 @@ namespace FacebookDesktopAppFacades
             {
                 m_LoginResult = FacebookService.Connect(AccessToken);
                 r_FacadesSharedData.FacebookUser = m_LoginResult.LoggedInUser;
+
+                if (UpdatingSuccessfulLogin != null)
+                {
+                    UpdatingSuccessfulLogin.Invoke();
+                }
             }
             catch (Exception e)
             {

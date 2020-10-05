@@ -18,6 +18,7 @@ namespace FacebookDesktopApp
             r_ApplicationSettings = ApplicationSettings.ApplicationSettingsInstance;
             LoggingIn += r_AppEngine.Login;
             LoggingOut += r_AppEngine.Logout;
+            r_AppEngine.UpdatingSuccessfulLogin += showMenuFormAndUpdateMainForm;
             r_AppEngine.LoggedOutSuccessfully += showSuccessLogoutMessage;
             r_AppEngine.NoticingLoginError += showFailLoginMessage;
             InitializeComponent();
@@ -56,7 +57,6 @@ namespace FacebookDesktopApp
                 if (r_ApplicationSettings.AutoLogin && !string.IsNullOrEmpty(r_ApplicationSettings.AccessToken))
                 {
                     r_AppEngine.Connect();
-                    showMenuFormAndUpdateMainForm();
                 }
             }
             catch (Exception exception)
