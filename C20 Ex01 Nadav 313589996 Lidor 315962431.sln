@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookDesktopApp", "FacebookDesktopApp\FacebookDesktopApp.csproj", "{8699991E-FFC1-4898-A14B-A0B0EBA54061}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BDBDAA44-2B6B-4225-AB68-7B5193F7B085}"
-	ProjectSection(SolutionItems) = preProject
-		SUBMIT DP MTA C20 Ex02 NadavSpinco313589996 LidorSommer315962431.txt = SUBMIT DP MTA C20 Ex02 NadavSpinco313589996 LidorSommer315962431.txt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookDesktopAppFacades", "FacebookDesktopAppFacades\FacebookDesktopAppFacades.csproj", "{E7171049-DD3E-4CD0-99AD-D750B34EFF9B}"
 EndProject

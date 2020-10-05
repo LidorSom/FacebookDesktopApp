@@ -19,6 +19,7 @@ namespace FacebookDesktopApp
             LoggingIn += r_AppEngine.Login;
             LoggingOut += r_AppEngine.Logout;
             r_AppEngine.LoggedOutSuccessfully += showSuccessLogoutMessage;
+            r_AppEngine.NoticingLoginError += showFailLoginMessage;
             InitializeComponent();
             loadApplicationSettings();
         }
@@ -91,7 +92,7 @@ namespace FacebookDesktopApp
                 }
                 catch (Exception exception)
                 {
-                    showFailLogoutMessage(exception);
+                    showFailLogoutMessage(exception.Message);
                 }
             }
         }
@@ -124,9 +125,15 @@ namespace FacebookDesktopApp
             MessageBox.Show("Logged out successfully");
         }
 
-        private void showFailLogoutMessage(Exception i_Exception)
+        private void showFailLogoutMessage(string i_errorMessage)
         {
-            MessageBox.Show("Log out didn't succeed: {0}", i_Exception.Message);
+            MessageBox.Show("Log out didn't succeed: ", i_errorMessage);
+        }
+
+        private void showFailLoginMessage(string i_errorMessage)
+        {
+            MessageBox.Show("Login didn't succeed: ", i_errorMessage);
+
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
@@ -137,7 +144,7 @@ namespace FacebookDesktopApp
             }
             catch (Exception exception)
             {
-                showFailLogoutMessage(exception);
+                showFailLogoutMessage(exception.Message);
             }
 
             updateFormButtonsWithLogout();
