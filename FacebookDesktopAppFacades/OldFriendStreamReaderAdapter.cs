@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Runtime.InteropServices;
 using FacebookDesktopAppFacades;
 using FacebookWrapper.ObjectModel;
 
@@ -67,8 +68,6 @@ namespace FacebookDesktopApp
             {
                 try
                 {
-                   // string line;
-
                     foreach (OldFriend oldFriend in this)
                     {
                         if (oldFriend.Id == i_User.Id)
@@ -77,18 +76,6 @@ namespace FacebookDesktopApp
                             break;
                         }
                     }
-                    
-                   /* while ((line = r_streamReader.ReadLine()) != null)
-                    {
-                        string[] arrayOfData = line.Split(' ');
-
-                        if (arrayOfData[0] == i_User.Id)
-                        {
-                            doesExistInFile = true;
-                            break;
-                        }
-                    }
-                    */
                 }
                 finally
                 {
