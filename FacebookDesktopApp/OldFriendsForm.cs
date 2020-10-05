@@ -25,8 +25,9 @@ namespace FacebookDesktopApp
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            Thread thread = new Thread(()=>r_AppEngine.FetchOldFriends());
-            thread.Start();
+            //Thread thread = new Thread(()=>r_AppEngine.FetchOldFriends());
+            //thread.Start();
+            r_AppEngine.FetchOldFriends();
         }
 
         private void OldFriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
