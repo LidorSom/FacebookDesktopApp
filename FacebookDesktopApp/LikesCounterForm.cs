@@ -30,7 +30,7 @@ namespace FacebookDesktopApp
             return i_KeyValue1.Value < i_KeyValue2.Value;
         }
 
-        private void updateLikesData(List<KeyValuePair<User, int>> i_LikesDataDictionary)  // to change it to string Key - client shouldn't know User Class
+        private void updateLikesData(ICollection<KeyValuePair<User, int>> i_LikesDataDictionary)  // to change it to string Key - client shouldn't know User Class
         {
             foreach (KeyValuePair<User, int> userAndLikeData in i_LikesDataDictionary)
             {

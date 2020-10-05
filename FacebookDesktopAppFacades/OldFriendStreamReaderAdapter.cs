@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using FacebookDesktopAppFacades;
@@ -22,9 +23,14 @@ namespace FacebookDesktopApp
             }
         }
 
+        IEnumerator<OldFriend> IEnumerable<OldFriend>.GetEnumerator()
+        {
+            return new OldFriendStreamReaderEnumerator(this); ;
+        }
+
         public IEnumerator GetEnumerator()
         {
-            return new OldFriendStreamReaderEnumerator(this);
+            return (this as IEnumerable<OldFriend>).GetEnumerator();
         }
 
         private OldFriend readOldFriend(long i_FilePosition)
@@ -91,13 +97,13 @@ namespace FacebookDesktopApp
             r_streamReader?.Dispose();
         }
 
-        private class OldFriendStreamReaderEnumerator : IEnumerator
+        private class OldFriendStreamReaderEnumerator : IEnumerator<OldFriend>
         {
             private const long k_ResetValue = 0;
             private long m_CurrentPosition;
             private OldFriend m_CurrentOldFriend;
             private readonly OldFriendStreamReaderAdapter r_Adapter;
-
+            
             public OldFriendStreamReaderEnumerator(OldFriendStreamReaderAdapter i_Adapter,
                 long i_FilePosition = k_ResetValue)
             {
@@ -108,7 +114,7 @@ namespace FacebookDesktopApp
 
             public object Current
             {
-                get { return m_CurrentOldFriend; }
+                get { return (this as IEnumerator<OldFriend>).Current; }
             }
 
             public bool MoveNext()
@@ -116,12 +122,19 @@ namespace FacebookDesktopApp
                 m_CurrentOldFriend = r_Adapter.readOldFriend(m_CurrentPosition);
                 m_CurrentPosition = r_Adapter.r_streamReader.BaseStream.Position;
 
-                return (m_CurrentOldFriend == null);
+                return (m_CurrentOldFriend != null);
             }
 
             public void Reset()
             {
                 m_CurrentPosition = k_ResetValue;
+            }
+
+            OldFriend IEnumerator<OldFriend>.Current => m_CurrentOldFriend;
+
+            public void Dispose()
+            {
+                Reset();
             }
         }
     }
