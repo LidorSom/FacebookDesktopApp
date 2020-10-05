@@ -40,8 +40,6 @@ namespace FacebookDesktopAppFacades
 
                 List<KeyValuePair<User,int>> iKeyValuePairs = likesDictionary.ToList();
 
-
-
                 if (SortUsersByLikes != null)
                 {
                     for (int i = 0; i < iKeyValuePairs.Count; i++)
@@ -58,12 +56,9 @@ namespace FacebookDesktopAppFacades
                     }
                 }
 
-
                 UpdateLikesData(iKeyValuePairs); //// In Finally because we want to display Something
             }
         }
-
-        
 
         private void updateDictionaryWithPhotos(Dictionary<User, int> i_LikesDictionary)
         {

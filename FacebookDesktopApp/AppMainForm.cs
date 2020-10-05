@@ -9,9 +9,15 @@ namespace FacebookDesktopApp
         private readonly ApplicationSettings r_ApplicationSettings;
         private readonly AppMainFacade r_AppEngine = new AppMainFacade();
 
+        public event Action LoggingIn;
+
+        public event Action LoggingOut;
+
         public AppMainForm()
         {
             r_ApplicationSettings = ApplicationSettings.ApplicationSettingsInstance;
+            LoggingIn += r_AppEngine.Login;
+            LoggingOut += r_AppEngine.Logout;
             r_AppEngine.LoggedOutSuccessfully += showSuccessLogoutMessage;
             InitializeComponent();
             loadApplicationSettings();
@@ -28,9 +34,16 @@ namespace FacebookDesktopApp
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            r_AppEngine.Login();
+            try
+            {
+                LoggingIn.Invoke();
 
-            showMenuFormAndUpdateMainForm();
+                showMenuFormAndUpdateMainForm();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show("Couldn't login please try again", exception.Message);
+            }
         }
 
         protected override void OnShown(EventArgs e)
@@ -120,7 +133,7 @@ namespace FacebookDesktopApp
         {
             try
             {
-                r_AppEngine.Logout();
+                LoggingOut.Invoke();
             }
             catch (Exception exception)
             {
